@@ -1,0 +1,77 @@
+/* Footer */
+
+footer {
+    background: var(--color-primary);
+    height: auto;
+    width: 100%;
+    padding-top: 40px;
+    color: white;
+  }
+  
+  #footer-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  #footer-contenedor h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 2rem;
+  }
+  
+  #footer-contenedor p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+  }
+  
+  .redes_sociales {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+  }
+  
+  .redes_sociales li {
+    margin: 0 10px;
+  }
+  
+  .redes_sociales a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .redes_sociales a i {
+    font-size: 1.1rem;
+    transition: color 0.4s ease;
+  }
+  
+  .redes_sociales a:hover i {
+    color: aqua;
+  }
+  
+  .footer_copy {
+    background: #546edf;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer_copy p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+  }
+  
+  .footer_copy span {
+    text-transform: uppercase;
+    opacity: 0.4;
+    font-weight: 200;
+  }
+  

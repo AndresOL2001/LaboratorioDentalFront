@@ -1,0 +1,162 @@
+<header class="contenedor1">
+  <div class="container">
+    <nav>
+      <label class="logo"><i class="fa-solid fa-tooth icon"></i>Dental</label>
+      <ul class="menu_items">
+        <li class="active"><a [routerLink]="'inicio'">Inicio </a></li>
+        <li><a>Productos & Servicios</a></li>
+        <li><a href="#footer-contenedor">Contactanos</a></li>
+        <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+      </ul>
+      <span (click)="abrirMenu()" class="btn_menu">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+    </nav>
+
+    <section class="pantalla_principal">
+      <div class="principal-text">
+        <h1 class="titulo_principal">Deposito Dental</h1>
+        <h2 class="subtitulo">
+          Los Mejores Productos Y Servicios Para Tu Consultorio
+        </h2>
+        <a class="button" [routerLink]="'/auth/registro'">Registrate ahora</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="wave" style="overflow: hidden">
+    <svg
+      viewBox="0 0 500 150"
+      preserveAspectRatio="none"
+      style="height: 100%; width: 100%"
+    >
+      <path
+        d="M0.00,49.98 C149.99,150.00 373.30,-64.61 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+        style="stroke: none; fill: #ffffff"
+      ></path>
+    </svg>
+  </div>
+</header>
+
+<section class="trabajos">
+  <div class="container">
+    <!-- categorias Servicios -->
+    <h2 class="subtitle">Categorias - Servicios</h2>
+    <div class="trabajos_grid">
+      <article class="trabajos_items">
+        <a [routerLink]="'/categorias/1'">
+          <a href="producto-seccion.html"
+            ><img
+              src="/assets/Products&Services/img1.jpg"
+              class="trabajos_img"
+          /></a>
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Protesis Removibles y Acrilicas</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a [routerLink]="'/inicio/servicios/categorias/1'">
+          <img
+            src="assets/Products&Services/img2.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Provisionales y Adicionales</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a [routerLink]="'/inicio/servicios/categorias/1'">
+          <img
+            src="assets/Products&Services/img3.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Guardas Oclusales</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a [routerLink]="'/inicio/servicios/categorias/1'">
+          <img
+            src="assets/Products&Services/img4.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Protesis Flexibles (TCS)</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a href="productos.html">
+          <img
+            src="assets/Products&Services/img5.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Aparatologia</h2>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- categorias Materiales -->
+    <h2 class="subtitle">Categorias - Materiales</h2>
+    <div class="trabajos_grid_Materiales">
+      <article class="trabajos_items">
+        <a href="/productos.html">
+          <img
+            src="assets/Products&Services/pexels-ivan-babydov-7788511.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Instrumental</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a href="productos.html">
+          <img
+            src="assets/Products&Services/pexels-ivan-babydov-7788506.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Ortodoncia</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a href="productos.html">
+          <img
+            src="assets/Products&Services/img3.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Material para Impresion</h2>
+          </div>
+        </a>
+      </article>
+
+      <article class="trabajos_items">
+        <a href="productos.html">
+          <img
+            src="assets/Products&Services/img4.jpg"
+            class="trabajos_img"
+          />
+          <div class="trabajos_hover">
+            <h2 class="trabajos_titulo">Material para provisionales</h2>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>

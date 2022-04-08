@@ -1,0 +1,65 @@
+<header class="contenedor2">
+    <div class="container">
+        <nav>
+            <label class="logo"><i class="fa-solid fa-tooth"></i>Dental</label>
+            <ul class="menu_items">
+                <li class="active"><a [routerLink]="'/inicio'">Inicio</a></li>
+                <li><a [routerLink]="'/inicio/servicios'">Productos & Servicios</a></li>
+                <li><a href="#footer-contenedor">Contactanos</a></li>
+                <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+            </ul>
+            <span class="btn_menu">
+                <i class="fa-solid fa-bars"></i>
+            </span>
+        </nav>
+    </div>
+
+
+
+</header>
+
+<section class="container">
+    <div>
+        <section>
+            <div class="contenedor-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a [routerLink]="'/inicio/servicios/categorias/1'">Categorias</a></li>
+                    <li><a href="#">Producto</a></li>
+                </ol>
+                <br><br><br />
+            </div>
+
+            <div class="producto">
+                <h2>Nombre del producto: </h2>
+                <p>Codigo del producto: </p><br />
+                <hr />
+                <div class="container-products">
+                    <div class="card-content">
+                        <div class="card"
+                            style="background-image: url(assets/Products&Services/pexels-ivan-babydov-7788506.jpg); background-repeat: no-repeat;">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <div class="info">
+                            <h2>Precio del producto:</h2>
+                            <br>
+                            <p><span>Estatus del producto:</span> Disponible</p>
+                            <br>
+                            <hr>
+                            <br>
+                            <p><span>Descripcion del producto:</span><br><br /> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Enim est inventore atque laudantium minima suscipit, illo sapiente
+                                ipsam reiciendis, at corrupti rerum voluptatum sit, impedit vel repudiandae velit eum
+                                error!</p>
+                            <br>
+                            <hr>
+                            <br>
+                            <p><span>Categorial del producto:</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+ </section>

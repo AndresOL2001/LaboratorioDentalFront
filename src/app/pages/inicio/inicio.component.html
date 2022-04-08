@@ -1,0 +1,144 @@
+<header class="contenedor1" >
+  <div class="container">
+    <nav>
+      <label class="logo"><i class="fa-solid fa-tooth icon"></i>Dental</label>
+      <ul class="menu_items">
+        <li class="active"><a class="activo" >Inicio</a></li>
+        <li><a [routerLink]="'servicios'">Productos & Servicios</a></li>
+        <li><a href="#footer-contenedor">Contactanos</a></li>
+        <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+      </ul>
+      <span (click)="abrirMenu()" class="btn_menu">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+    </nav>
+
+    <section class="pantalla_principal">
+      <div class="principal-text">
+        <h1 class="titulo_principal">Deposito Dental</h1>
+        <h2 class="subtitulo">
+          Los Mejores Productos Y Servicios Para Tu Consultorio
+        </h2>
+        <a class="button" [routerLink]="'/auth/registro'">Registrate ahora</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="wave" style="overflow: hidden">
+    <svg
+      viewBox="0 0 500 150"
+      preserveAspectRatio="none"
+      style="height: 100%; width: 100%"
+    >
+      <path
+        d="M0.00,49.98 C149.99,150.00 373.30,-64.61 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+        style="stroke: none; fill: #ffffff"
+      ></path>
+    </svg>
+  </div>
+</header>
+
+<main>
+  <br /><br />
+  <section class="contenido_principal container">
+    <img src="assets/PrincipalPage/Objetivos.jpg" class="imagen-principal" />
+    <h2 class="subtitle">Quienes Somos:</h2>
+    <p>
+      Somos una empresa dedicada a la venta de artículos dentales para los
+      profesionales de la salud. Comprometidos con la calidad de los productos,
+      manejamos las mejores marcas del mercado
+    </p>
+    <br />
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quas
+      deserunt sint cupiditate dignissimos culpa perferendis quasi illum quam
+      voluptatum.
+    </p>
+  </section>
+
+  <section class="about container">
+    <figure class="about_img about_img--left">
+      <img
+        src="assets/PrincipalPage/QuienesSomos.jpg"
+        class="aboutpicture2 width"
+      />
+    </figure>
+    <div class="about_Text">
+      <h2 class="subtitle">Nuestros Objetivos</h2>
+      <p>
+        Servicio al cliente de clase mundial: Continuaremos esforzándonos para
+        que cada experiencia del cliente con Odontology Business Group supere
+        totalmente sus expectativas.
+      </p>
+      <br />
+      <p>
+        Innovación Tecnológica: Incorporando las nuevas tecnologías actuales,
+        para sistematizar nuestras operaciones, así como administrar
+        eficientemente los procesos internos de nuestra empresa. Trayendo
+        múltiples beneficios, que impactan positivamente la competitividad
+        distinguiéndonos ante otros distribuidores.
+      </p>
+      <br />
+      <p>
+        Ascender a la mejor posición en la Industria: Ser considerados los
+        máximos distribuidores de suministros y equipo odontológico de México.
+      </p>
+    </div>
+
+    <div class="about_Text">
+      <h2 class="subtitle">¿Buscas un Deposito dental?</h2>
+      <p>
+        Somos el Deposito dental más grande, completo y eficiente de México; con
+        una larga trayectoria en el mercado, entregando casos siempre a tiempo a
+        toda la república mexicana.
+      </p>
+    </div>
+    <figure class="about_img about_img--left">
+      <img
+        src="assets/PrincipalPage/Buscasdeposito1.jpg"
+        class="aboutpicture2 respDep"
+      />
+    </figure>
+    <figure class="about_img about_img--left">
+      <img
+        src="assets/PrincipalPage/productodecalidad.jpg"
+        class="aboutpicture1"
+      />
+    </figure>
+    <div class="about_Text resp-about-text">
+      <h2 class="subtitle">Productos de Calidad</h2>
+      <p>
+        Somos un centro especializado en Odontología Integral dedicado a brindar
+        servicios de alta calidad, con materiales de última generación, técnicas
+        y procedimientos actuales.
+      </p>
+      <br />
+      <p>
+        Seguimos estrictos protocolos de esterilización para garantizar una
+        atención completamente segura y efectiva. Cumplimos los más altos
+        estándares, combinados con un excelente servicio y las mejores
+        instalaciones.
+      </p>
+    </div>
+    <div class="about_Text resp-about-text">
+      <h2 class="subtitle">Pagos</h2>
+      <p>
+        Los pagos se pueden realizar con tarjeta de crédito, débito,
+        transferencia interbancaria o deposito en banco u oxxo.
+      </p>
+      <br />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum a
+        reiciendis fugit. Quos magni, quo aspernatur provident repellendus
+        accusantium soluta sequi necessitatibus illum ipsam sapiente cum ducimus
+        veniam expedita commodi!
+      </p>
+    </div>
+    <figure class="about_img about_img--left">
+      <img
+        src="assets/PrincipalPage/tarjetas.jpg"
+        class="aboutpicture2 respagos"
+      />
+    </figure>
+  </section>
+</main>
