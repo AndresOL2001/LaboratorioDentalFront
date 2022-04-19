@@ -1,16 +1,19 @@
-<form class="formulario">
+<form class="formulario" [formGroup]="loginForm" autocomplete="off" (ngSubmit)="login()">
   <h1>Iniciar sesion</h1>
+  <span errorMsg [mensaje]="mensajeEmail()" *ngIf="campoEsValido('email')" class="form-control-text" style="color:red"></span>
 
   <div class="input-contenedor">
     <i class="fa-solid fa-message icon"></i>
-    <input type="text" placeholder="Correo Electronico" />
+    <input  formControlName="email" type="text" placeholder="Correo Electronico" />
   </div>
+
+  
 
   <div class="input-contenedor">
     <i class="fa-solid fa-key icon"></i>
-    <input type="password" placeholder="Contraseña" />
+    <input formControlName="password"type="password" placeholder="Contraseña" />
   </div>
-  <input type="submit" value="Login" class="button" />
+  <button  type="submit" class="button" >Login</button>
   <p>
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum,
     voluptatibus?

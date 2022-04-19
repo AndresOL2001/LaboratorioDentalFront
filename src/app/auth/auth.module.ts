@@ -4,13 +4,20 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorMsgDirective } from './directives/error-msg.directive';
 
 
 @NgModule({
-  declarations: [LoginComponent,RegistroComponent],
+  declarations: [LoginComponent,RegistroComponent, ErrorMsgDirective],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule
+  ],
+  exports:[
+    ErrorMsgDirective
   ]
+
 })
 export class AuthModule { }
