@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { CategoriasService } from 'src/app/services/categorias.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,12 +8,17 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private usuarioService:UsuarioService) { }
-
+  constructor(private categoriasService:CategoriasService) { }
+ 
   ngOnInit(): void {
-    
+    this.getCategorias();
   }
 
+  getCategorias(){
+    this.categoriasService.getCategorias().subscribe(resp => {
+      console.log(resp);
+    });
+  }
   
 
 }

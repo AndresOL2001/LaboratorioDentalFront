@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { AuthService } from 'src/app/services/auth.service';
-import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
+import * as sha1 from 'js-sha1';
 
 @Component({
   selector: 'app-login',
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  
   }
 
   async login(){
@@ -60,11 +61,14 @@ export class LoginComponent implements OnInit {
      this.authService.login(loginDTO).subscribe(resp => {
 
         this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
-          this.usuarioService.claims = resp;
-          console.log(this.usuarioService.claims);
-          this.router.navigateByUrl("/admin/inicio");
+         
+          if(localStorage.getItem("claims")){
+            localStorage.removeItem("claims");
+          }
+          localStorage.setItem("claims",JSON.stringify(resp));
+          this.router.navigateByUrl('/admin/inicio');   
          })
-      
+          
       })
     }
      

@@ -6,7 +6,9 @@
         <li class="active"><a [routerLink]="'inicio'">Inicio </a></li>
         <li><a>Productos & Servicios</a></li>
         <li><a href="#footer-contenedor">Contactanos</a></li>
-        <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+        <li *ngIf="modelo.rol==='' || modelo.rol===undefined"><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a style="cursor: pointer;" (click)="cerrarSesion()">Cerrar Sesión</a></li>
+        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{modelo.nombre}}</a></li>
       </ul>
       <span (click)="abrirMenu()" class="btn_menu">
         <i class="fa-solid fa-bars"></i>
@@ -43,66 +45,17 @@
     <!-- categorias Servicios -->
     <h2 class="subtitle">Categorias - Servicios</h2>
     <div class="trabajos_grid">
-      <article class="trabajos_items">
-        <a [routerLink]="'/categorias/1'">
-          <a href="producto-seccion.html"
-            ><img
-              src="/assets/Products&Services/img1.jpg"
-              class="trabajos_img"
-          /></a>
+
+      <article *ngFor="let categoria of categorias" class="trabajos_items">
+        <a [routerLink]="['/inicio/servicios/categorias',categoria.id]">    
+            <img  [src]="categoria.imagen"  class="trabajos_img"/>
           <div class="trabajos_hover">
-            <h2 class="trabajos_titulo">Protesis Removibles y Acrilicas</h2>
+            <h2 class="trabajos_titulo">{{categoria.nombre}}</h2>
           </div>
         </a>
       </article>
 
-      <article class="trabajos_items">
-        <a [routerLink]="'/inicio/servicios/categorias/1'">
-          <img
-            src="assets/Products&Services/img2.jpg"
-            class="trabajos_img"
-          />
-          <div class="trabajos_hover">
-            <h2 class="trabajos_titulo">Provisionales y Adicionales</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="trabajos_items">
-        <a [routerLink]="'/inicio/servicios/categorias/1'">
-          <img
-            src="assets/Products&Services/img3.jpg"
-            class="trabajos_img"
-          />
-          <div class="trabajos_hover">
-            <h2 class="trabajos_titulo">Guardas Oclusales</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="trabajos_items">
-        <a [routerLink]="'/inicio/servicios/categorias/1'">
-          <img
-            src="assets/Products&Services/img4.jpg"
-            class="trabajos_img"
-          />
-          <div class="trabajos_hover">
-            <h2 class="trabajos_titulo">Protesis Flexibles (TCS)</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="trabajos_items">
-        <a href="productos.html">
-          <img
-            src="assets/Products&Services/img5.jpg"
-            class="trabajos_img"
-          />
-          <div class="trabajos_hover">
-            <h2 class="trabajos_titulo">Aparatologia</h2>
-          </div>
-        </a>
-      </article>
+     
     </div>
   </div>
 

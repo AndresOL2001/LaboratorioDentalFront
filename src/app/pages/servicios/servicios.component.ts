@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from 'src/app/models/categoria';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { environment } from 'src/environments/environment';
+import { CategoriasService } from '../../services/categorias.service';
 
 @Component({
   selector: 'app-servicios',
@@ -6,11 +10,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
+  
+  //Usuario sesion
+  modelo = {
+    rol:'',
+    nombre:''
+  };
 
-  constructor() { }
+  categorias:Categoria[]=[];
+
+  constructor(private usuarioService:UsuarioService,private categoriasService:CategoriasService) {
+ 
+   }
+
+   inicializarPermisos(){
+    this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
+      let claims;
+      if(localStorage.getItem("claims")){
+        claims = JSON.parse(localStorage.getItem(("claims")));
+      }
+     this.modelo.rol = claims ? claims[environment.rol] : ''
+     this.modelo.nombre =claims ? claims[environment.nombre] : '';
+     })
+    
+   }
+
+   cerrarSesion(){
+     localStorage.removeItem("claims");
+     this.modelo={
+       rol:"",
+       nombre:""
+     }
+   }
+ 
 
   ngOnInit(): void {
+    this.inicializarPermisos();
+    this.getCategorias();
+
   }
+
 
   abrirMenu(){
 
@@ -19,4 +58,10 @@ export class ServiciosComponent implements OnInit {
       
     }
   
+ getCategorias(){
+   this.categoriasService.getCategorias().subscribe( (categorias:Categoria[]) => {
+    this.categorias = categorias;
+  })
+ }
+
 }

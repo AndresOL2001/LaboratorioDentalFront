@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { CategoriasService } from './services/categorias.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,11 @@ import { AuthService } from './services/auth.service';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthService,
       multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CategoriasService,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]
