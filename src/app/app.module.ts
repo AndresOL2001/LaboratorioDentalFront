@@ -6,6 +6,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { CategoriasService } from './services/categorias.service';
+import { ProductoService } from './services/producto.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,11 @@ import { CategoriasService } from './services/categorias.service';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CategoriasService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ProductoService,
       multi: true,
     }
   ],

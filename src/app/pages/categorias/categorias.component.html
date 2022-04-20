@@ -1,128 +1,65 @@
 <header class="contenedor2">
-    <div class="container">
-      <nav>
-        <label class="logo"><i class="fa-solid fa-tooth"></i>Dental</label>
-        <ul class="menu_items">
-          <li class="active"><a [routerLink]="'/inicio'">Inicio</a></li>
-          <li><a [routerLink]="'/inicio/servicios'" >Productos & Servicios</a></li>
-          <li><a href="#footer-contenedor" >Contactanos</a></li>
-          <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+  <div class="container">
+    <nav>
+      <label class="logo"><i class="fa-solid fa-tooth"></i>Dental</label>
+      <ul class="menu_items">
+        <li class="active"><a [routerLink]="'/inicio'">Inicio</a></li>
+        <li><a [routerLink]="'/inicio/servicios'">Productos & Servicios</a></li>
+        <li><a href="#footer-contenedor">Contactanos</a></li>
+        <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
       </ul>
       <span class="btn_menu">
         <i class="fa-solid fa-bars"></i>
       </span>
     </nav>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <section class="container" style="position: relative; bottom: 35px;">
-    <div>
-        <section>
-   
-            <div class="producto">
-              <h2 style="text-align: center;">Categoria: </h2>
-              <p style="text-align: center;">Descripcion de la categoria: </p><br/>
-              
-              <div class="contenedor-breadcrumb">
-                <ol class="breadcrumb">
-                    <li><a [routerLink]="'/inicio/servicios/categorias/1'">Categorias</a></li>
-                </ol>
-           <br/>
-            </div>
-              <hr/>
-              
+<section class="container" style="position: relative; bottom: 35px">
+  <div>
+    <section>
+      <div class="producto">
+        <h2 style="text-align: center">Categoria - {{categoriaActual.nombre}}</h2>
+        <hr>
+        <br>
+        <h4 style="text-align: center">Descripcion de la categoria:  <span>{{categoriaActual.descripcion}}</span></h4>
+       
+        <br />
+
+        <div class="contenedor-breadcrumb">
+          <ol class="breadcrumb">
+            <li>
+              <a [routerLink]="'/inicio/servicios/categorias/1'">Categorias</a>
+            </li>
+          </ol>
+          <br />
+        </div>
+        <hr />
+
+        <div class="container-content">
+          <div *ngFor="let producto of productos" class="card-content">
+            <a [routerLink]="'/inicio/servicios/categorias/1/productos/1'">
+              <div  class="card"style="background: url(/assets/Products&Services/product.jpg);
+                  background-size: cover;
+                  background-position: center;"
+              >
+                <h3 style="text-align: center; color: white">
+                  {{producto.productoNombre}}
+                </h3>
+                <p style="text-align: center; color: white">Precio: ${{producto.precio}}</p>
+                <div class="info">
+                  <h3>Descripcion</h3>
+                  <p>
+                    {{producto.Descripcion}}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
 
 
-              <div class="container-content">
-                <div class="card-content">
-                 <a [routerLink]="'/inicio/servicios/categorias/1/productos/1'"  ><div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                     <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                     <p style="text-align: center; color: white;" >Precio</p>
-                    <div class="info">
-                      <h3>Descripcion</h3>
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-                    </div>
-                  </div>
-                </a> 
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                      <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                      <p style="text-align: center; color: white;" >Precio</p>
-                     <div class="info">
-                       <h3>Descripcion</h3>
-                       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-                     </div>
-                  </div>
-                  
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                     <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                     <p style="text-align: center; color: white;" >Precio</p>
-                    <div class="info">
-                      <h3>Descripcion</h3>
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-                    </div>
-                  </div>
-
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                   <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                   <p style="text-align: center; color: white;" >Precio</p>
-                  <div class="info">
-                    <h3>Descripcion</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-                  </div>
-                  </div>
-
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                  <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                  <p style="text-align: center; color: white;" >Precio</p>
-                 <div class="info">
-                   <h3>Descripcion</h3>
-                   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-                 </div>
-                  </div>
-                  
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                   <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                   <p style="text-align: center; color: white;" >Precio</p>
-                  <div class="info">
-                    <h3>Descripcion</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-                  </div>
-                  </div>
-
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                <p style="text-align: center; color: white;" >Precio</p>
-               <div class="info">
-                 <h3>Descripcion</h3>
-                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-               </div>
-                  </div>
-                  <div class="card" style="background: url(/assets/Products&Services/product.jpg);
-                  background-size: cover;
-                  background-position: center;">
-                <h3 style="text-align: center; color: white;">Nombre del producto</h3>
-                <p style="text-align: center; color: white;" >Precio</p>
-               <div class="info">
-                 <h3>Descripcion</h3>
-                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo nisi voluptates magnam perferendis ratione aliquid illum pariatur consectetur tempore!</p>
-               </div>
-                  </div>
-                </div> 
-            </div>
-          
-    </div>
+      </div>
+    </section>
+  </div>
 </section>
