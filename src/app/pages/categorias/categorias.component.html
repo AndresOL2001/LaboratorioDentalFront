@@ -22,7 +22,7 @@
         <h2 style="text-align: center">Categoria - {{categoriaActual.nombre}}</h2>
         <hr>
         <br>
-        <h4 style="text-align: center">Descripcion de la categoria:  <span>{{categoriaActual.descripcion}}</span></h4>
+        <h4 style="text-align: center"><span>{{categoriaActual.descripcion}}</span></h4>
        
         <br />
 
@@ -37,12 +37,14 @@
         <hr />
 
         <div class="container-content">
-          <div *ngFor="let producto of productos" class="card-content">
-            <a [routerLink]="'/inicio/servicios/categorias/1/productos/1'">
-              <div  class="card"style="background: url(/assets/Products&Services/product.jpg);
+          
+          <div  class="card-content">
+            
+              <div *ngFor="let producto of productos" class="card"style="background: url(/assets/Products&Services/product.jpg);
                   background-size: cover;
                   background-position: center;"
               >
+              <a [routerLink]="'/inicio/servicios/categorias/1/productos/1'"></a>
                 <h3 style="text-align: center; color: white">
                   {{producto.productoNombre}}
                 </h3>
@@ -50,11 +52,11 @@
                 <div class="info">
                   <h3>Descripcion</h3>
                   <p>
-                    {{producto.Descripcion}}
+                    {{producto.descripcion}}
                   </p>
                 </div>
-              </div>
-            </a>
+              </div>  
+   
           </div>
         </div>
 
