@@ -12,6 +12,7 @@ export class AuthService implements HttpInterceptor {
 
   private URL_API = environment.urlLocal;
 
+  private PRODUCCION = 'https://depositodentalapi.herokuapp.com/api/';
   constructor(private http:HttpClient)  { }
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -34,7 +35,7 @@ export class AuthService implements HttpInterceptor {
       
    }
  
-    return this.http.post(this.URL_API+'auth/login',usuarioLogin,options);
+    return this.http.post(this.PRODUCCION+'auth/login',usuarioLogin,options);
   }
 
 

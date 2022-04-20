@@ -9,7 +9,9 @@ import { environment } from 'src/environments/environment';
 export class ProductoService implements HttpInterceptor {
 
   private URL_API = environment.urlLocal;
-  
+
+  private PRODUCCION = 'https://depositodentalapi.herokuapp.com/api/'
+
   constructor(private http:HttpClient) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -20,7 +22,12 @@ export class ProductoService implements HttpInterceptor {
   }
 
   getProductos(){
-    return this.http.get(this.URL_API+"productos");
+    return this.http.get(this.PRODUCCION+'productos');
+  }
+
+  getProductoById(id:number){
+    return this.http.get(this.PRODUCCION+`productos/${id}`);
+
   }
 
 }

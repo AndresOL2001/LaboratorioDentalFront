@@ -2,13 +2,15 @@ import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService implements HttpInterceptor{
 
   private URL_API = environment.urlLocal;
+
+  private PRODUCCION = 'https://depositodentalapi.herokuapp.com/api/'
+
 
   constructor(private http:HttpClient) {}
 
@@ -21,11 +23,11 @@ export class CategoriasService implements HttpInterceptor{
 }
 
   getCategorias(){
-    return this.http.get(this.URL_API+"categorias");
+    return this.http.get(this.PRODUCCION+"categorias");
   }
 
   getCategoriaById(id:number){
-    return this.http.get(this.URL_API+`categorias/${id}`);
+    return this.http.get(this.PRODUCCION+`categorias/${id}`);
 
   }
 }

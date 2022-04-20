@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class UsuarioService {
 
   private URL_API = environment.urlLocal;
-  
+  private PRODUCCION = 'https://depositodentalapi.herokuapp.com/api/'
   public claims:{};
 
   get getClaims(){
@@ -17,7 +17,7 @@ export class UsuarioService {
   constructor(private http:HttpClient) { }
   obtenerRolActualUsuario(){
 
-    return this.http.get(this.URL_API+'Usuarios/rolUsuario');
+    return this.http.get(this.PRODUCCION+'Usuarios/rolUsuario');
   }
 
   
