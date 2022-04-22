@@ -5,5 +5,6 @@ export interface Producto {
     cantidadEnStock?:number,
     precio:number,
     imagen?:string,
-    categoriaId:number[]
+    categoriaId:number[],
+    categorias
 }

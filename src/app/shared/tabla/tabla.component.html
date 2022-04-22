@@ -1,0 +1,68 @@
+<app-modal *ngIf="modalSwitch" [modelo]="modelo"></app-modal>
+  <nav>
+    <label class="logo"><i class="fas fa-tooth"></i>Dental</label>
+
+   <ul class="menu_items">
+      <li>
+        <a class="nav-link active" aria-current="page"  [routerLink]="'/admin/inicio'">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" [routerLink]="'/admin/productos'">Productos</a>
+      </li>
+      <li>
+        <a class="nav-link"  [routerLink]="'/admin/categorias'">Categorias</a>
+      </li>
+      <li>
+        <a class="nav-link"  [routerLink]="'/admin/usuarios'">Usuarios</a>
+      </li>
+      
+    </ul> 
+  </nav>
+
+
+
+<!-- Table -->
+
+<h1>{{modelo}}</h1>
+<br>
+<div class="d-flex formSearch">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+   <button class="btn  ADD" type="submit">Search</button> 
+   <button (click)="openModal()" class="btn ADD" type="button">Crear</button> 
+</div>
+  <table class="tablePr table-striped">
+    <table class="table">
+      <thead >
+        <tr>
+          <th *ngFor="let prop of propiedades" scope="col">{{prop}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let modelo of datos" >
+          <th scope="row">{{modelo.id}}</th>
+          <td *ngIf="modelo.nombre">{{modelo.nombre}}</td>
+          <td  *ngIf="modelo.imagen"><img [src]=modelo.imagen alt=""></td> 
+          <td  *ngIf="modelo.descripcion">{{modelo.descripcion}}</td>
+          <td  *ngIf="modelo.tipo">{{modelo.tipo}}</td>
+          <td  *ngIf="modelo.productoNombre">{{modelo.productoNombre}}</td>
+          <td  *ngIf="modelo.cantidadEnStock">{{modelo.cantidadEnStock}}</td>
+          <td  *ngIf="modelo.precio">{{modelo.precio}}</td>
+          <td  *ngIf="modelo.celular">{{modelo.celular}}</td>
+          <td  *ngIf="modelo.direccion">{{modelo.direccion}}</td>
+          <td  *ngIf="modelo.codigoPostal">{{modelo.codigoPostal}}</td>
+          <td  *ngIf="modelo.correo">{{modelo.correo}}</td>
+          <td  *ngIf="modelo.rfc">{{modelo.rfc}}</td>
+
+
+
+
+
+
+          <td><button class="btnMod MOD" type="button">Editar</button></td>
+          <td><button class="btnMod DELETE" type="button">Eliminar</button></td>
+        </tr>
+        <br>
+      </tbody>
+    </table>
+  </table>
+

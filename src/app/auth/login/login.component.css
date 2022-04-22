@@ -24,7 +24,9 @@
     padding: 15px;
   }
 
-
+  i{
+    margin-left: 10px;
+  }
   h1 {
     text-align: center;
     color: #1a2537;

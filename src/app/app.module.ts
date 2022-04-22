@@ -7,10 +7,14 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { CategoriasService } from './services/categorias.service';
 import { ProductoService } from './services/producto.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
+    FooterComponent
+
+   
   ],
   imports: [
     BrowserModule,

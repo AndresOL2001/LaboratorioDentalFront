@@ -3,14 +3,14 @@
   <span errorMsg [mensaje]="mensajeEmail()" *ngIf="campoEsValido('email')" class="form-control-text" style="color:red"></span>
 
   <div class="input-contenedor">
-    <i class="fa-solid fa-message icon"></i>
+    <i class="far fa-envelope"></i>
     <input  formControlName="email" type="text" placeholder="Correo Electronico" />
   </div>
 
   
 
   <div class="input-contenedor">
-    <i class="fa-solid fa-key icon"></i>
+    <i class="fas fa-key"></i>
     <input formControlName="password"type="password" placeholder="Contraseña" />
   </div>
   <button  type="submit" class="button" >Login</button>

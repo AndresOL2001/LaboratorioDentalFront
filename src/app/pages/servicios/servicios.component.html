@@ -1,7 +1,7 @@
 <header class="contenedor1">
   <div class="container">
     <nav>
-      <label class="logo"><i class="fa-solid fa-tooth icon"></i>Dental</label>
+      <label class="logo"><i class="fas fa-tooth"></i>Dental</label>
       <ul class="menu_items">
         <li class="active"><a [routerLink]="'inicio'">Inicio </a></li>
         <li><a>Productos & Servicios</a></li>
@@ -39,8 +39,8 @@
     </svg>
   </div>
 </header>
-
-<section class="trabajos">
+<app-loading *ngIf="loading"></app-loading>
+<section *ngIf="!loading" class="trabajos">
   <div class="container">
     <!-- categorias Servicios -->
     <h2 class="subtitle">Categorias - Servicios</h2>

@@ -4,6 +4,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
 import { CategoriasService } from '../../services/categorias.service';
 import * as sha1 from 'js-sha1';
+import { Producto } from 'src/app/models/Producto';
 
 @Component({
   selector: 'app-servicios',
@@ -19,6 +20,9 @@ export class ServiciosComponent implements OnInit {
   };
 
   categorias:Categoria[]=[];
+  producto:Producto;
+  productoIdActual:number;
+  loading:boolean = true;
 
   constructor(private usuarioService:UsuarioService,private categoriasService:CategoriasService) {
  
@@ -48,7 +52,11 @@ export class ServiciosComponent implements OnInit {
   ngOnInit(): void {  
     this.inicializarPermisos();
     this.getCategorias();
+
+    
+   
   }
+  
 
 
   abrirMenu(){
@@ -61,6 +69,7 @@ export class ServiciosComponent implements OnInit {
  getCategorias(){
    this.categoriasService.getCategorias().subscribe( (categorias:Categoria[]) => {
     this.categorias = categorias;
+    this.loading = false;
   })
  }
 
@@ -69,6 +78,6 @@ export class ServiciosComponent implements OnInit {
  }
  obtenerIdCategoriaActual(number:number){
   localStorage.setItem("id",number.toString());
-
  }
+ 
 }

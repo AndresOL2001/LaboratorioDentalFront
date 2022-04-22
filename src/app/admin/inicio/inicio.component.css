@@ -1,0 +1,142 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* Navbar */
+
+nav {
+    height: 75px;
+    width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #667eea;
+  margin-bottom: 20px;
+  }
+  
+  .logo {
+    color: #ffffff;
+    font-size: 35px;
+    padding: 0 10px;
+    font-weight: bold;
+    position: absolute;
+    left: 3.5%;
+  }
+  
+  .menu_items{
+    display: flex;
+  list-style: none;
+  margin-right: 30px;
+  user-select: none;
+  }
+  
+  .activo:visited{
+    color: yellow !important;
+  }
+  
+  .menu_items li{
+    border-radius: 3px;
+    margin: 0 5px;
+  }
+  
+  .menu_items li a{
+    padding: 7px 13px;
+    font-size: 18px;
+    display: block;
+  }
+  
+  
+  .menu_items li a:hover {
+  
+      color: black;
+  }
+  
+  
+
+
+
+/* Botones */
+
+  .btnMod{
+  width: 100px;
+  height: 40px;
+  margin: 15px;
+  border-radius: 3px;
+}
+
+.aceptar{background: rgb(30, 0, 255); border: none; color: white;}  .aceptar:hover{background:rgba(30, 0, 255, 0.624);}
+.rechazar{background: rgb(255, 0, 0); border: none; color: white;}    .rechazar:hover{background:rgba(255, 0, 0, 0.631);}
+
+.info .btnMod{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info .conf{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+
+/* card */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+.card-content {
+  display: grid; 
+  /* grid-template-columns: repeat(3, 1fr); */
+   grid-template-columns: repeat(auto-fill, minmax(14rem , 1fr));
+  gap: 15px;
+ 
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+ background-color: rgba(232, 232, 232, 0.328);
+}
+
+.card a {
+  color: #000;
+}
+
+
+.card .info {
+  display: flex;
+  height: 80%;
+  flex-direction: column;
+}
+
+
+
+/* Responsive */
+
+@media screen and (max-width: 800px){
+ .menu_items{
+    display: none;
+  }
+}

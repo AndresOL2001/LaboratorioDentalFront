@@ -1,54 +1,61 @@
 <form class="formulario" [formGroup]="registroForm" autocomplete="off" (ngSubmit)="registro()">
-    <h1>Registrate</h1>
-    <div class="contenedor">
+  <h1>Registrate</h1>
+  <div class="contenedor">
 
-      <span errorMsg [mensaje]="errorMsg('El nombre debe ser mayor a 10 caracteres')" *ngIf="campoEsValido('Nombre')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-user icon"></i>
-        <input formControlName="Nombre" type="text" placeholder="Nombre Completo" />
-      </div>
-
-      <span errorMsg [mensaje]="errorMsg('La direccion no puede ser vacia')" *ngIf="campoEsValido('Direccion')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-location-dot icon"></i>
-        <input formControlName="Direccion" type="text" placeholder="Direccion" />
-      </div>
-
-      <span errorMsg [mensaje]="errorMsg('El codigo postal es de 5 digitos')" *ngIf="campoEsValido('CodigoPostal')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-inbox icon"></i>      
-      <input formControlName="CodigoPostal"type="text" placeholder="Codigo Postal" />
-      </div>
-
-      <span errorMsg [mensaje]="errorMsg('Formato de email invalido')" *ngIf="campoEsValido('email')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-message icon"></i>
-        <input formControlName="email" type="text" placeholder="Correo Electronico" />
-      </div>
-
-      <span errorMsg [mensaje]="errorMsg('Lo integran 4 letras, 6 dígitos y 3 caracteres alfanuméricos')" *ngIf="campoEsValido('RFC')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-address-card icon"></i>    
-              <input formControlName="RFC" type="text" placeholder="Rfc" />
-      </div>
-
-      <span errorMsg [mensaje]="errorMsg('La contraseña tiene que ser mayor o igual a 6 caracteres')" *ngIf="campoEsValido('password')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-key icon"></i>
-        <input formControlName="password" type="password" placeholder="Contraseña" />
-      </div>
-
-      <span errorMsg [mensaje]="errorMsg('Las contraseñas tienen que coincidir')" *ngIf="campoEsValido('confirmPassword')" class="form-control-text" style="color:red"></span>
-      <div class="input-contenedor">
-        <i class="fa-solid fa-key icon"></i>
-        <input  formControlName="confirmPassword"type="password" placeholder="Confirmar Contraseña" />
-      </div>
-
-
-
-      <button type="submit" class="button">Registrate</button>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, voluptatibus?</p>
-      <hr>
-      <p>Lorem ipsum dolor sit amet. <a class="link"[routerLink]="'auth'">Iniciar sesion</a></p>
+    <span errorMsg [mensaje]="errorMsg('El nombre debe ser mayor a 10 caracteres')" *ngIf="campoEsValido('Nombre')"
+      class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-user"></i>
+      <input formControlName="Nombre" type="text" placeholder="Nombre Completo" />
     </div>
-  </form>
+
+    <span errorMsg [mensaje]="errorMsg('La direccion no puede ser vacia')" *ngIf="campoEsValido('Direccion')"
+      class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-map"></i>
+      <input formControlName="Direccion" type="text" placeholder="Direccion" />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('El codigo postal es de 5 digitos')" *ngIf="campoEsValido('CodigoPostal')"
+      class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-paper-plane"></i>
+      <input formControlName="CodigoPostal" type="text" placeholder=" Codigo Postal" />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('Formato de email invalido')" *ngIf="campoEsValido('email')"
+      class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-envelope"></i>
+      <input formControlName="email" type="text" placeholder="Correo Electronico" />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('Lo integran 4 letras, 6 dígitos y 3 caracteres alfanuméricos')"
+      *ngIf="campoEsValido('RFC')" class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-address-card"></i>
+      <input formControlName="RFC" type="text" placeholder="Rfc" />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('La contraseña tiene que ser mayor o igual a 6 caracteres')"
+      *ngIf="campoEsValido('password')" class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="fas fa-key"></i>
+      <input formControlName="password" type="password" placeholder="Contraseña" />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('Las contraseñas tienen que coincidir')" *ngIf="campoEsValido('confirmPassword')"
+      class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="fas fa-key"></i>
+      <input formControlName="confirmPassword" type="password" placeholder="Confirmar Contraseña" />
+    </div>
+
+
+
+    <button type="submit" class="button">Registrate</button>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, voluptatibus?</p>
+    <hr>
+    <p>Lorem ipsum dolor sit amet. <a class="link" [routerLink]="'auth'">Iniciar sesion</a></p>
+  </div>
+</form>

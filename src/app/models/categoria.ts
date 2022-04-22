@@ -6,3 +6,12 @@ export interface Categoria {
     tipo:string
 
 }
+
+export interface CategoriaCreacion {
+
+    nombre:string,
+    Imagen?:string,
+    descripcion:string,
+    tipo:string
+
+}

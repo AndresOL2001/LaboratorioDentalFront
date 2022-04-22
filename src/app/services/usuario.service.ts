@@ -20,5 +20,9 @@ export class UsuarioService {
     return this.http.get(this.PRODUCCION+'Usuarios/rolUsuario');
   }
 
+  obtenerUsuarios(){
+    return this.http.get(this.PRODUCCION+'Usuarios');
+  }
+
   
 }

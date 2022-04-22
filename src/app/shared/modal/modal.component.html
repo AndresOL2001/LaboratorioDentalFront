@@ -1,0 +1,82 @@
+<div id="modal" class="modal">
+    <div class="modal_body">
+        <button class="cerrar" (click)="closemodal()">x</button>
+
+        
+        <h1 *ngIf="modelo==='Categorias'">Crear Categoria</h1>
+        <h1 *ngIf="modelo==='Usuarios'">Crear Usuario</h1>
+        <h1 *ngIf="modelo==='Productos'">Crear Producto</h1>
+        <div class="contenedor_formulario">
+
+            <div>
+                <h3>Nombre: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Nombre">
+            </div>
+
+            <div *ngIf="modelo ==='Categorias' || modelo==='Productos'">
+                <h3>Insertar Imagen: </h3>
+                <div class="custom-input-file">
+                    <input type="file" id="fichero-tarifas" class="input-file" value="">
+                    Subir Imagen...
+                </div>
+            </div>
+
+            <div *ngIf="modelo === 'Categorias'">
+                <h3>Tipo: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Tipo">
+            </div>
+
+            <div *ngIf="modelo === 'Categorias' || modelo==='Productos'">
+                <h3>Descripcion: </h3>
+                <input type="text" name="formulario" class="formularioDesc" placeholder="Descripcion"><br><br>
+            </div>
+
+
+            <div *ngIf="modelo === 'Usuarios'">
+                <h3>Celular: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Celular"><br><br>
+            </div>
+
+            <div *ngIf="modelo === 'Usuarios'">
+                <h3>Dirección: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Dirección"><br><br>
+            </div>
+
+            <div *ngIf="modelo === 'Usuarios'">
+                <h3>Codigo Postal: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Codigo Postal"><br><br>
+            </div>
+
+            <div *ngIf="modelo === 'Usuarios'">
+                <h3>Correo: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Correo"><br><br>
+            </div>
+
+              <div *ngIf="modelo === 'Usuarios'">
+                <h3>RFC: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="RFC"><br><br>
+            </div>
+
+            <div *ngIf="modelo === 'Productos'">
+                <h3>Cantidad: </h3>
+                <input type="text" name="formulario" class="formulario" placeholder="Cantidad"><br><br>
+            </div>
+            
+            <div *ngIf="modelo === 'Productos'">
+                <h3>Precio: </h3>
+                <input type="number" name="formulario" class="formulario" placeholder="Precio"><br><br>
+            </div>
+
+            <div *ngIf="modelo === 'Productos'">
+                <h3>Categoria: </h3>
+                <input type="number" name="formulario" class="formulario" placeholder="Categoria - Ids"><br><br>
+            </div>
+
+            <button class="Boton cuatro">
+                <span>Crear</span>
+            </button>
+
+        </div>
+
+    </div>
+</div>

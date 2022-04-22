@@ -9,6 +9,10 @@
     background-attachment: fixed; 
     font-family: "Open Sans", sans-serif;
   }
+
+  i{
+    margin-left: 10px;
+  }
   
   .contenedor {
     position: relative;
