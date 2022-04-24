@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Login } from '../models/login';
+import { UsuarioCreacion } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,11 @@ export class AuthService implements HttpInterceptor {
     return this.http.post(this.PRODUCCION+'auth/login',usuarioLogin,options);
   }
 
+  crearUsuario(productoCreacionDTO: UsuarioCreacion) {
+    
+
+    return this.http.post(this.PRODUCCION + `auth/registro`, productoCreacionDTO);
+
+  }
 
 }

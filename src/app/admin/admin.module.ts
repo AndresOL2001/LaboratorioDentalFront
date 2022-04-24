@@ -8,13 +8,17 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ModalComponent } from '../shared/modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorMsgAdmDirective } from './directives/error-msg-adm.directive';
 
 
 @NgModule({
-  declarations: [InicioComponent, TablaComponent, CategoriasComponent, UsuariosComponent, ProductosComponent,ModalComponent],
+  declarations: [InicioComponent, TablaComponent, CategoriasComponent, UsuariosComponent, ProductosComponent,ModalComponent, ErrorMsgAdmDirective],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    ReactiveFormsModule
+  ],
+  exports:[ErrorMsgAdmDirective]
 })
 export class AdminModule { }

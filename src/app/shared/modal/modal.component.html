@@ -1,82 +1,122 @@
 <div id="modal" class="modal">
     <div class="modal_body">
-        <button class="cerrar" (click)="closemodal()">x</button>
+        <button class="cerrar"  (click)="closemodal()">x</button>
 
         
         <h1 *ngIf="modelo==='Categorias'">Crear Categoria</h1>
         <h1 *ngIf="modelo==='Usuarios'">Crear Usuario</h1>
         <h1 *ngIf="modelo==='Productos'">Crear Producto</h1>
+
+        <form (ngSubmit)="crearModelo(modelo)" autocomplete="off" [formGroup]="creacionForm">
         <div class="contenedor_formulario">
 
             <div>
                 <h3>Nombre: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Nombre">
+                <input formControlName="Nombre" type="text" name="formulario" class="formulario" placeholder="Nombre">
+                <span errorMsgAdm [mensaje]="errorMsg('El nombre debe ser mayor a 10 caracteres')" *ngIf="campoEsValido('Nombre')"></span>
+
             </div>
 
             <div *ngIf="modelo ==='Categorias' || modelo==='Productos'">
                 <h3>Insertar Imagen: </h3>
                 <div class="custom-input-file">
-                    <input type="file" id="fichero-tarifas" class="input-file" value="">
+                    <input type="file" id="fichero-tarifas" class="input-file" (change)="onFileSelected($event)">
                     Subir Imagen...
                 </div>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de insertar imagen')" *ngIf="campoEsValido('imagen')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Categorias'">
                 <h3>Tipo: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Tipo">
+                <input formControlName="tipo" type="text" name="formulario" class="formulario" placeholder="Tipo">
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de insertar el tipo')" *ngIf="campoEsValido('tipo')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Categorias' || modelo==='Productos'">
                 <h3>Descripcion: </h3>
-                <input type="text" name="formulario" class="formularioDesc" placeholder="Descripcion"><br><br>
+                <input formControlName="descripcion"type="text" name="formulario" class="formularioDesc" placeholder="Descripcion"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar una descripcion')" *ngIf="campoEsValido('descripcion')"></span>
+
             </div>
 
 
             <div *ngIf="modelo === 'Usuarios'">
                 <h3>Celular: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Celular"><br><br>
+                <input formControlName="Celular" type="text" name="formulario" class="formulario" placeholder="Celular"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar un numero celular de 10 digitos')" *ngIf="campoEsValido('Celular')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Usuarios'">
                 <h3>Dirección: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Dirección"><br><br>
+                <input formControlName="Direccion" type="text" name="formulario" class="formulario" placeholder="Dirección"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar una direccion')" *ngIf="campoEsValido('Direccion')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Usuarios'">
                 <h3>Codigo Postal: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Codigo Postal"><br><br>
+                <input formControlName="CodigoPostal" type="text" name="formulario" class="formulario" placeholder="Codigo Postal"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar un codigo postal valido')" *ngIf="campoEsValido('CodigoPostal')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Usuarios'">
                 <h3>Correo: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Correo"><br><br>
+                <input formControlName="correo" type="text" name="formulario" class="formulario" placeholder="Correo"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar un formato correcto')" *ngIf="campoEsValido('correo')"></span>
+
             </div>
 
               <div *ngIf="modelo === 'Usuarios'">
                 <h3>RFC: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="RFC"><br><br>
+                <input formControlName="RFC" type="text" name="formulario" class="formulario" placeholder="RFC"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Lo integran 4 letras, 6 dígitos y 3 caracteres alfanuméricos')"*ngIf="campoEsValido('RFC')"></span>
+
+            </div>
+
+            <div *ngIf="modelo === 'Usuarios'">
+                <h3>Contraseña: </h3>
+                <input formControlName="password" type="password" name="formulario" class="formulario" placeholder="Contraseña"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar una contraseña mayor o igual a 6 caracteres')"*ngIf="campoEsValido('password')"></span>
+
+            </div>
+
+            <div *ngIf="modelo === 'Usuarios'">
+                <h3>Confirmar Contraseña: </h3>
+                <input formControlName="confirmPassword" type="password" name="formulario" class="formulario" placeholder="Repetir Contraseña"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de ingresar una contraseña mayor o igual a 6 caracteres')"*ngIf="campoEsValido('confirmPassword')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Productos'">
                 <h3>Cantidad: </h3>
-                <input type="text" name="formulario" class="formulario" placeholder="Cantidad"><br><br>
+                <input formControlName="cantidad"type="number" name="formulario" class="formulario" placeholder="Cantidad"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de no dejar campos vacios')"*ngIf="campoEsValido('cantidad')"></span>
+
             </div>
             
             <div *ngIf="modelo === 'Productos'">
                 <h3>Precio: </h3>
-                <input type="number" name="formulario" class="formulario" placeholder="Precio"><br><br>
+                <input formControlName="precio" type="number" name="formulario" class="formulario" placeholder="Precio"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de no dejar campos vacios')"*ngIf="campoEsValido('precio')"></span>
+
             </div>
 
             <div *ngIf="modelo === 'Productos'">
                 <h3>Categoria: </h3>
-                <input type="number" name="formulario" class="formulario" placeholder="Categoria - Ids"><br><br>
+                <input formControlName="categoriaId" type="number" name="formulario" class="formulario" placeholder="Categoria - Ids"><br><br>
+                <span errorMsgAdm [mensaje]="errorMsg('Favor de no dejar campos vacios')"*ngIf="campoEsValido('categoriaId')"></span>
+
             </div>
 
-            <button class="Boton cuatro">
+            <button type="submit" class="Boton cuatro">
                 <span>Crear</span>
             </button>
 
         </div>
-
+    </form>
     </div>
 </div>

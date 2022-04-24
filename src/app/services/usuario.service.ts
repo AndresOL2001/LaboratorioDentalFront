@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Usuario, UsuarioCreacion } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,8 @@ export class UsuarioService {
   obtenerUsuarios(){
     return this.http.get(this.PRODUCCION+'Usuarios');
   }
+
+  
 
   
 }

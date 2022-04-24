@@ -1,10 +1,10 @@
 
-export interface Usuario {
+export interface UsuarioCreacion {
     nombre: string;
     celular: string;
     direccion: string;
     codigoPostal: string;
-    correo: string;
+    Correo: string;
     rfc: string;
     contraseña:string;
 }

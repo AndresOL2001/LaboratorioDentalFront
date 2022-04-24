@@ -9,9 +9,9 @@ export interface Categoria {
 
 export interface CategoriaCreacion {
 
-    nombre:string,
+    Nombre:string,
     Imagen?:string,
-    descripcion:string,
-    tipo:string
+    Descripcion:string,
+    Tipo:string
 
 }

@@ -23,8 +23,13 @@ export class CategoriasService implements HttpInterceptor {
 
   }
 
-  crearCategoria(categoria: CategoriaCreacion) {
-    return this.http.post(this.PRODUCCION + "categorias", categoria);
+  crearCategoria(categoriaCreacionDTO: CategoriaCreacion) {
+    let fd = new FormData();
+    fd.append("Nombre", categoriaCreacionDTO.Nombre);
+    fd.append("Descripcion", categoriaCreacionDTO.Descripcion);
+    fd.append("Imagen", categoriaCreacionDTO.Imagen);
+    fd.append("Tipo", categoriaCreacionDTO.Tipo);
+    return this.http.post(this.PRODUCCION + "categorias", fd);
   }
 
   getCategorias() {
@@ -33,6 +38,6 @@ export class CategoriasService implements HttpInterceptor {
 
   getCategoriaById(id: number) {
     return this.http.get(this.PRODUCCION + `categorias/${id}`);
-
+    
   }
 }

@@ -10,10 +10,16 @@
 }
 
 .modal_body .cerrar {
-
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
   position: relative;
   bottom: 40px;
-  left: 188px;
+  left: 0;
+  color: white;
+  background:#ff0000a1;
+  border-radius: 4px;
+  width: 40px;
 }
 
 .modal_body {
@@ -29,14 +35,16 @@
 
 }
 
-.formulario {
+div input {
   padding: 8px;
   margin-bottom: 10px;
-
-
+  width: 100%;
+  height: 42px;
 }
 
-.formularioDesc {
+div .formularioDesc {
+  padding: 8px;
+  margin-bottom: 10px;
   padding: 35px;
 }
 
@@ -118,4 +126,10 @@
   position: absolute;
   right: -1000px;
   top: -1000px;
+}
+
+
+
+span{
+  color:red;
 }

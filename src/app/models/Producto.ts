@@ -8,3 +8,14 @@ export interface Producto {
     categoriaId:number[],
     categorias
 }
+
+export interface ProductoCreacion {
+
+    ProductoNombre:string,
+    Descripcion:string,
+    CantidadEnStock?:number,
+    precio:number,
+    imagen?:File,
+    categoriaProductosIds:number[],
+
+}
