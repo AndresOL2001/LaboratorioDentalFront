@@ -54,13 +54,8 @@
           <td  *ngIf="modelo.rfc">{{modelo.rfc}}</td>
           <td *ngIf="modelo.categoriaId">{{modelo.categoriaId}}</td>
 
-
-
-
-
-
           <td><button class="btnMod MOD" type="button">Editar</button></td>
-          <td><button class="btnMod DELETE" type="button">Eliminar</button></td>
+          <td><button (click)="eliminarModelo(modelo.id)"class="btnMod DELETE" type="button">Eliminar</button></td>
         </tr>
         <br>
       </tbody>

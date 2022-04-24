@@ -43,4 +43,8 @@ export class ProductoService implements HttpInterceptor {
     return this.http.post(this.PRODUCCION + `productos`, fd);
 
   }
+
+  eliminarProductoById(id:number){
+    return this.http.delete(this.PRODUCCION+`productos/${id}`);
+  }
 }

@@ -38,6 +38,10 @@ export class CategoriasService implements HttpInterceptor {
 
   getCategoriaById(id: number) {
     return this.http.get(this.PRODUCCION + `categorias/${id}`);
-    
+
+  }
+
+  eliminarCategoriaById(id:number){
+    return this.http.delete(this.PRODUCCION+`categorias/${id}`);
   }
 }

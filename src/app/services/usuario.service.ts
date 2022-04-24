@@ -25,7 +25,9 @@ export class UsuarioService {
     return this.http.get(this.PRODUCCION+'Usuarios');
   }
 
-  
+  eliminarUsuarioById(id:number){
+    return this.http.delete(this.PRODUCCION+`usuarios/${id}`);
+  }
 
   
 }
