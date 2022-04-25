@@ -19,13 +19,19 @@ export class TablaComponent implements OnInit {
   @Input() datos: any[] = [];
   @Input() propiedades: [] = [];
   @Input() modelo: string = '';
+
+  editar: boolean = false;
+  modeloModal: any = {};
   modalSwitch: boolean = false;
+  idModal: number;
 
   ngOnInit(): void {
     this.watchService.$modal.subscribe((valor) => (this.modalSwitch = valor));
   }
 
-  openModal() {
+  openModal(editar: boolean, id?: number) {
+    this.idModal = id;
+    this.editar = editar;
     this.modalSwitch = true;
   }
 
@@ -37,14 +43,15 @@ export class TablaComponent implements OnInit {
           showDenyButton: true,
           confirmButtonText: 'Si',
           denyButtonText: `No`,
-          icon:'question'
+          icon: 'question'
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             this.categoriaService.eliminarCategoriaById(id).subscribe(resp => {
               Swal.fire('Exito!', 'La categoria fue borrada correctamente', 'success')
+              this.actualizarTablas()
             });
-        
+
           } else if (result.isDenied) {
             Swal.fire('Exito!', 'Sin cambios', 'info')
           }
@@ -56,14 +63,15 @@ export class TablaComponent implements OnInit {
           showDenyButton: true,
           confirmButtonText: 'Si',
           denyButtonText: `No`,
-          icon:'question'
+          icon: 'question'
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             this.usuarioService.eliminarUsuarioById(id).subscribe(resp => {
               Swal.fire('Exito!', 'El usuario fue borrado correctamente', 'success')
+              this.actualizarTablas();
             });
-        
+
           } else if (result.isDenied) {
             Swal.fire('Exito!', 'Sin cambios', 'info')
           }
@@ -75,14 +83,15 @@ export class TablaComponent implements OnInit {
           showDenyButton: true,
           confirmButtonText: 'Si',
           denyButtonText: `No`,
-          icon:'question'
+          icon: 'question'
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             this.productoService.eliminarProductoById(id).subscribe(resp => {
               Swal.fire('Exito!', 'El producto fue borrado correctamente', 'success')
+              this.actualizarTablas();
             });
-        
+
           } else if (result.isDenied) {
             Swal.fire('Exito!', 'Sin cambios', 'info')
           }
@@ -93,4 +102,32 @@ export class TablaComponent implements OnInit {
         break;
     }
   }
+
+
+  actualizarTablas() {
+    switch (this.modelo) {
+      case "Categorias":
+        this.categoriaService.getCategorias().subscribe( (resp:any) => {
+          this.datos=resp;
+        })
+        break;
+      case "Usuarios":
+        this.usuarioService.obtenerUsuarios().subscribe( (resp:any) => {
+          this.datos=resp;
+        })
+        break;
+      case "Productos":
+        this.productoService.getProductos().subscribe( (resp:any) => {
+          this.datos=resp;
+        })
+        break;
+      default:
+        break;
+    }
+  }
+
+  procesaPropagar(event:any){
+    this.actualizarTablas();
+  }
+
 }

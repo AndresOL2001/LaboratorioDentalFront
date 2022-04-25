@@ -1,4 +1,4 @@
-<app-modal *ngIf="modalSwitch" [modelo]="modelo"></app-modal>
+
   <nav>
     <label class="logo"><i class="fas fa-tooth"></i>Dental</label>
 
@@ -28,7 +28,7 @@
 <div class="d-flex formSearch">
   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
    <button class="btn  ADD" type="submit">Search</button> 
-   <button (click)="openModal()" class="btn ADD" type="button">Crear</button> 
+   <button (click)="openModal(false)" class="btn ADD" type="button">Crear</button> 
 </div>
   <table class="tablePr table-striped">
     <table class="table">
@@ -54,7 +54,7 @@
           <td  *ngIf="modelo.rfc">{{modelo.rfc}}</td>
           <td *ngIf="modelo.categoriaId">{{modelo.categoriaId}}</td>
 
-          <td><button class="btnMod MOD" type="button">Editar</button></td>
+          <td><button (click)="openModal(true,modelo.id)" class="btnMod MOD" type="button">Editar</button></td>
           <td><button (click)="eliminarModelo(modelo.id)"class="btnMod DELETE" type="button">Eliminar</button></td>
         </tr>
         <br>
@@ -62,3 +62,4 @@
     </table>
   </table>
 
+  <app-modal (propagar)="procesaPropagar($event)" *ngIf="modalSwitch" [modeloNombre]="modelo" [editar]="editar" [modeloId]="idModal"></app-modal>

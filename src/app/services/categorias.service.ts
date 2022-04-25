@@ -44,4 +44,17 @@ export class CategoriasService implements HttpInterceptor {
   eliminarCategoriaById(id:number){
     return this.http.delete(this.PRODUCCION+`categorias/${id}`);
   }
+
+  updateCategoriaById(id:number,categoriaCreacionDTO:CategoriaCreacion){
+
+    let fd = new FormData();
+    fd.append("Nombre", categoriaCreacionDTO.Nombre);
+    fd.append("Descripcion", categoriaCreacionDTO.Descripcion);
+    fd.append("Imagen", categoriaCreacionDTO.Imagen);
+    fd.append("Tipo", categoriaCreacionDTO.Tipo);
+
+    return this.http.put(this.PRODUCCION+`categorias/${id}`,categoriaCreacionDTO);
+
+  }
+  
 }

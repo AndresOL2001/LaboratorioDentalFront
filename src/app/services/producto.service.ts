@@ -3,6 +3,7 @@ import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProductoCreacion } from '../models/Producto';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,31 @@ export class ProductoService implements HttpInterceptor {
   }
 
   crearProducto(productoCreacionDTO: ProductoCreacion) {
+
+
+
+    let fd = new FormData();
+    fd.append("ProductoNombre", productoCreacionDTO.ProductoNombre);
+    fd.append("Descripcion", productoCreacionDTO.Descripcion);
+    fd.append("CantidadEnStock", productoCreacionDTO.CantidadEnStock.toString());
+    fd.append("Precio", productoCreacionDTO.precio.toString());
+    fd.append("Imagen", productoCreacionDTO.imagen);
+
+    fd.append("categoriaProductosIds", JSON.stringify(productoCreacionDTO.categoriaProductosIds));
+
+
+
+    return this.http.post(this.PRODUCCION + `productos`, fd);
+
+  }
+
+  eliminarProductoById(id: number) {
+    return this.http.delete(this.PRODUCCION + `productos/${id}`);
+  }
+
+ updateProductoById(id:number,productoCreacionDTO:ProductoCreacion){
+  console.log(productoCreacionDTO);
+    //const url = `${this.PRODUCCION}productos/${id}`
     let fd = new FormData();
     fd.append("ProductoNombre", productoCreacionDTO.ProductoNombre);
     fd.append("Descripcion", productoCreacionDTO.Descripcion);
@@ -40,11 +66,21 @@ export class ProductoService implements HttpInterceptor {
     fd.append("Imagen", productoCreacionDTO.imagen);
     fd.append("categoriaProductosIds", JSON.stringify(productoCreacionDTO.categoriaProductosIds));
 
-    return this.http.post(this.PRODUCCION + `productos`, fd);
+     
+   
 
-  }
+   return this.http.put(this.PRODUCCION + `productos/${id}`,fd);
 
-  eliminarProductoById(id:number){
-    return this.http.delete(this.PRODUCCION+`productos/${id}`);
   }
 }
+
+/* 
+ try {
+       const resp = await fetch(url,{
+      method:'PUT',
+      body:fd
+    });
+    const data = await resp.json();
+
+    
+*/

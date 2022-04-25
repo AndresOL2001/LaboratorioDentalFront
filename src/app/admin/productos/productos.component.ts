@@ -19,7 +19,7 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.productosService.getProductos().subscribe((resp:any)=>{
       this.productos = resp;
-      console.log(resp);
+     // console.log(resp);
     })
   }
 }

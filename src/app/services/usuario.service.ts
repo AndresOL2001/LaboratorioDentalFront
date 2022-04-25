@@ -25,8 +25,17 @@ export class UsuarioService {
     return this.http.get(this.PRODUCCION+'Usuarios');
   }
 
+  obtenerUsuarioById(id:number){
+    return this.http.get(this.PRODUCCION+`usuarios/${id}`);
+  }
+
   eliminarUsuarioById(id:number){
     return this.http.delete(this.PRODUCCION+`usuarios/${id}`);
+  }
+
+  updateUsuarioById(id:number,usuarioCreacionDTO:UsuarioCreacion){
+    return this.http.put(this.PRODUCCION + `usuarios/${id}`,usuarioCreacionDTO);
+
   }
 
   
