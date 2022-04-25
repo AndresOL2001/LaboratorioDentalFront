@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/Producto';
 import { ProductoService } from '../../services/producto.service';
 import * as sha1 from 'js-sha1';
+import { UsuarioService } from '../../services/usuario.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-producto',
@@ -10,8 +12,12 @@ import * as sha1 from 'js-sha1';
 })
 export class ProductoComponent implements OnInit {
 
-  constructor(private productoService:ProductoService) { }
-
+  constructor(private productoService:ProductoService,private usuarioService:UsuarioService) { }
+  //Usuario sesion
+  modelo = {
+    rol:'',
+    nombre:''
+  };
   loading:boolean = true;
 
   productoIdActual:number;
@@ -31,6 +37,7 @@ export class ProductoComponent implements OnInit {
     this.productoIdActual = JSON.parse(localStorage.getItem('idProducto'));
     //console.log(this.categoriaActualId);
     this.getProductoById();
+    this.inicializarPermisos();
   }
   getProductoById() {
     this.productoService.getProductoById(this.productoIdActual).subscribe( (resp:Producto) => {
@@ -39,6 +46,21 @@ export class ProductoComponent implements OnInit {
       this.loading = false;
     })
   
+  }
+
+  inicializarPermisos(){
+    this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
+      let claims;
+      if(localStorage.getItem("claims")){
+        claims = JSON.parse(localStorage.getItem(("claims")));
+      }
+     this.modelo.rol = claims ? claims[environment.rol] : ''
+     this.modelo.nombre =claims ? claims[environment.nombre] : '';
+     })
+    
+   }
+   getNombre(){
+    return this.modelo.nombre.split(' ')[0];
   }
 
   volverAtras(){

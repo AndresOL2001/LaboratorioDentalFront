@@ -8,7 +8,7 @@
         <li><a href="#footer-contenedor">Contactanos</a></li>
         <li *ngIf="modelo.rol==='' || modelo.rol===undefined"><a [routerLink]="'/auth'">Iniciar sesion</a></li>
         <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a style="cursor: pointer;" (click)="cerrarSesion()">Cerrar Sesión</a></li>
-        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{modelo.nombre}}</a></li>
+        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{getNombre()}}</a></li>
       </ul>
       <span (click)="abrirMenu()" class="btn_menu">
         <i class="fa-solid fa-bars"></i>

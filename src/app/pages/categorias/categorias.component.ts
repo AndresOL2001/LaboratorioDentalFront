@@ -10,6 +10,8 @@ import { CategoriasService } from '../../services/categorias.service';
 import { ProductoService } from '../../services/producto.service';
 import * as sha1 from 'js-sha1';
 import { Producto } from 'src/app/models/Producto';
+import { UsuarioService } from '../../services/usuario.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
@@ -18,12 +20,18 @@ import { Producto } from 'src/app/models/Producto';
 export class CategoriasComponent implements OnInit {
   constructor(
     private categoriaService: CategoriasService,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private usuarioService:UsuarioService
   ) {}
 
   productos: Producto[] = [];
   loading:boolean=true;
   categoriaActualId;
+
+  modelo = {
+    rol:'',
+    nombre:''
+  };
 
   categoriaActual: Categoria = {
     id: 0,
@@ -33,11 +41,26 @@ export class CategoriasComponent implements OnInit {
     tipo: '',
   };
 
+  inicializarPermisos(){
+    this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
+      let claims;
+      if(localStorage.getItem("claims")){
+        claims = JSON.parse(localStorage.getItem(("claims")));
+      }
+     this.modelo.rol = claims ? claims[environment.rol] : ''
+     this.modelo.nombre =claims ? claims[environment.nombre] : '';
+     })
+    
+   }
+   getNombre(){
+    return this.modelo.nombre.split(' ')[0];
+  }
   ngOnInit(): void {
     this.categoriaActualId = JSON.parse(localStorage.getItem('id'));
     console.log(this.categoriaActualId);
     this.getCategoriaById();
     this.getProductos();
+    this.inicializarPermisos();
   }
 
   getCategoriaById() {

@@ -27,7 +27,9 @@ export class ServiciosComponent implements OnInit {
   constructor(private usuarioService:UsuarioService,private categoriasService:CategoriasService) {
  
    }
-
+   getNombre(){
+     return this.modelo.nombre.split(' ')[0];
+   }
    inicializarPermisos(){
     this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
       let claims;

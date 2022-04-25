@@ -151,11 +151,8 @@
 
                 </div>
 
-                <button type="submit" class="Boton cuatro">
-                    <span *ngIf="!editar">Crear</span>
-                    <span *ngIf="editar">Actualizar</span>
-                </button>
-
+                <button *ngIf="!editar" type="submit" class="Boton cuatro">Crear</button>
+                <button *ngIf="editar" type="submit" class="Boton cuatro">Actualizar</button>
             </div>
         </form>
     </div>
