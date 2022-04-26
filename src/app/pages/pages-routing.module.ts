@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 
@@ -21,6 +22,9 @@ const routes: Routes = [
       },
       {
         path:'servicios/categorias/:id/productos/:id',component:ProductoComponent
+      },
+      {
+        path:'miCuenta',component:MiCuentaComponent
       },
       
       {
