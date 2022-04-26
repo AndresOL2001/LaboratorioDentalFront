@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from '../../services/usuario.service';
-import * as sha1 from 'js-sha1';
 
 @Component({
   selector: 'app-login',

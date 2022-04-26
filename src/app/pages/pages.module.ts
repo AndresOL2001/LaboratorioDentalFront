@@ -7,10 +7,11 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ProductoComponent } from './producto/producto.component';
 import { LoadingComponent } from '../shared/loading/loading.component';
+import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 
 
 @NgModule({
-  declarations: [InicioComponent,LoadingComponent, ServiciosComponent, CategoriasComponent, ProductoComponent],
+  declarations: [InicioComponent,LoadingComponent, ServiciosComponent, CategoriasComponent, ProductoComponent, MiCuentaComponent],
   imports: [
     CommonModule,
     PagesRoutingModule

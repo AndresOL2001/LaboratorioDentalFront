@@ -7,6 +7,15 @@
         <li><a [routerLink]="'servicios'">Productos & Servicios</a></li>
         <li><a href="#footer-contenedor">Contactanos</a></li>
         <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <i class="far fa-user icon"></i>   
+         </button>
+          <div class="dropdown-content">
+          <li><a [routerLink]= "'miCuenta'">Mi Cuenta</a></li>
+          <li><a [routerLink]="'/auth'">Cerrar sesion</a></li>
+      </div>
+    </div>
       </ul>
       <span (click)="abrirMenu()" class="btn_menu">
         <i class="fa-solid fa-bars"></i>
