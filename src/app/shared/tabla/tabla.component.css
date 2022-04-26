@@ -14,8 +14,12 @@ body{
     min-height: 100%;
 }
 
+.titulo{
+  color:#667eea;
+  margin:10px;
+}
 /* Navbar */
-
+  
 nav {
     height: 75px;
     width: 100vw;

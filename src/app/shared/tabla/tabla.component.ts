@@ -4,6 +4,7 @@ import { CategoriasService } from '../../services/categorias.service';
 import { ProductoService } from '../../services/producto.service';
 import { WatchService } from 'src/app/services/watch.service';
 import Swal from 'sweetalert2';
+import { BusquedaService } from 'src/app/services/busqueda.service';
 
 @Component({
   selector: 'app-tabla',
@@ -14,7 +15,8 @@ export class TablaComponent implements OnInit {
   constructor(private watchService: WatchService,
     private usuarioService: UsuarioService,
     private productoService: ProductoService,
-    private categoriaService: CategoriasService) { }
+    private categoriaService: CategoriasService,
+    private busquedaService:BusquedaService) { }
 
   @Input() datos: any[] = [];
   @Input() propiedades: [] = [];
@@ -126,8 +128,15 @@ export class TablaComponent implements OnInit {
     }
   }
 
-  procesaPropagar(event:any){
+  actualizarTablaDesdeHijo(event:any){
     this.actualizarTablas();
+  }
+
+  buscarTodo(termino:string){
+    this.busquedaService.buscarTodo(this.modelo,termino).subscribe( (resp:any) => {
+      this.datos = resp;
+     // this.actualizarTablas();
+    })
   }
 
 }

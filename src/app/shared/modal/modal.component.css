@@ -134,6 +134,15 @@ img{
   margin-top: 5px;
 }
 
+.modal_body::-webkit-scrollbar{
+  width: 7px;
+}
+
+.modal_body::-webkit-scrollbar-thumb{
+background:#667eea;
+border-radius: 8px;
+}
+
 span{
   color:red;
 }

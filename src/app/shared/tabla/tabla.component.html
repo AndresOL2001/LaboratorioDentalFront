@@ -26,11 +26,18 @@
 <h1>{{modelo}}</h1>
 <br>
 <div class="d-flex formSearch">
-  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-   <button class="btn  ADD" type="submit">Search</button> 
+  <input class="form-control me-2" #input type="search" placeholder="Search" aria-label="Search">
+   <button (click)="buscarTodo(input.value)"class="btn  ADD" type="submit">Search</button> 
    <button (click)="openModal(false)" class="btn ADD" type="button">Crear</button> 
 </div>
-  <table class="tablePr table-striped">
+
+
+<div *ngIf="datos.length===0">
+  <h1 class="titulo">No se han encontrado {{modelo}} .. </h1>
+</div>
+
+
+  <table class="tablePr table-striped" *ngIf="datos.length>0">
     <table class="table">
       <thead >
         <tr>
@@ -62,4 +69,4 @@
     </table>
   </table>
 
-  <app-modal (propagar)="procesaPropagar($event)" *ngIf="modalSwitch" [modeloNombre]="modelo" [editar]="editar" [modeloId]="idModal"></app-modal>
+  <app-modal (propagar)="actualizarTablaDesdeHijo($event)" *ngIf="modalSwitch" [modeloNombre]="modelo" [editar]="editar" [modeloId]="idModal"></app-modal>
