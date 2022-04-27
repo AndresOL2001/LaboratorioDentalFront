@@ -12,7 +12,7 @@
               <i class="far fa-user icon"></i>   
            </button>
             <div class="dropdown-content">
-            <li><a [routerLink]= "'miCuenta'">Mi Cuenta</a></li>
+            <li><a>Mi Cuenta</a></li>
             <li><a [routerLink]="'/auth'">Cerrar sesion</a></li>
         </div>
         </div>
@@ -29,7 +29,7 @@
     <!-- categorias Materiales -->
     <div class="trabajos_grid_Materiales">
       <article class="trabajos_items">
-        <a href="/productos.html">
+        <a [routerLink]="'./historial'">
           <img
           src="assets/micuenta/pexels-anete-lusina-4792284.jpg"
           class="trabajos_img"
@@ -43,7 +43,7 @@
 
 
       <article class="trabajos_items">
-        <a href="/productos.html">
+        <a [routerLink]="'./compras'">
           <img
             src="assets/micuenta/compras.jpeg"
             class="trabajos_img"
@@ -56,7 +56,7 @@
       </article>
 
       <article class="trabajos_items">
-        <a href="/productos.html">
+        <a [routerLink]="'./configuracion'"href="/productos.html">
           <img
             src="assets/micuenta/pexels-cup-of-couple-6177572.jpg"
             class="trabajos_img"

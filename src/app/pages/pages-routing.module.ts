@@ -5,6 +5,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { ComprasComponent } from './compras/compras.component';
+import { HistorialComponent } from './historial/historial.component';
+import { UsuarioConfigComponent } from './usuario-config/usuario-config.component';
 
 const routes: Routes = [
 
@@ -26,7 +29,15 @@ const routes: Routes = [
       {
         path:'miCuenta',component:MiCuentaComponent
       },
-      
+      {
+        path:'miCuenta/compras',component:ComprasComponent
+      },
+      {
+        path:'miCuenta/historial',component:HistorialComponent
+      },
+      {
+        path:'miCuenta/configuracion',component:UsuarioConfigComponent
+      },
       {
         path:'**',redirectTo:''
       }
