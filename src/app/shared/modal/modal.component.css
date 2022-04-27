@@ -86,20 +86,6 @@ div .formularioDesc {
   transition: 0.3s ease all;
 }
 
-.Boton.cuatro::after {
-  content: "";
-  width: 1px;
-  height: 1px;
-  background: none;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transition: 0.3s ease-in-out all;
-  border-radius: 100px;
-  transform-origin: center;
-}
-
 .custom-input-file {
   background-color: #ff0000a1;
   color: #fff;

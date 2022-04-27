@@ -4,20 +4,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --background: linear-gradient(#ffffff00 0%, #08080865 100%);
-  --color-primary: #667eea;
-  --color-secondary: #764ba2;
-  --boton-padding: 20px 40px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Open Sans", sans-serif;
-}
 a{
   text-decoration: none;
   color: white;
@@ -52,9 +38,7 @@ a{
 .contenedor1 .container {
   padding: 0;
 }
-i.fa-solid.fa-tooth.icon {
-  font-size: 37px;
-}
+
 nav {
   height: 75px;
   width: 100vw;
