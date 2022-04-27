@@ -1,1 +1,67 @@
-<p>mi-cuenta works!</p>
+<header class="contenedor2">
+    <div class="container">
+      <nav>
+        <label class="logo"><i class="fas fa-tooth"></i> Dental</label>
+        <ul class="menu_items">
+          <li class="active"><a [routerLink]="'/inicio'">Inicio</a></li>
+          <li><a  [routerLink]="'/inicio/servicios'">Productos & Servicios</a></li>
+          <li><a href="#footer-contenedor">Contactanos</a></li>
+          <li><a [routerLink]="'/auth'">Iniciar sesion</a></li>
+          <div class="dropdown">
+            <button class="dropbtn">
+              <i class="far fa-user icon"></i>   
+           </button>
+            <div class="dropdown-content">
+            <li><a [routerLink]= "'miCuenta'">Mi Cuenta</a></li>
+            <li><a [routerLink]="'/auth'">Cerrar sesion</a></li>
+        </div>
+        </div>
+        </ul>
+        <span class="btn_menu">
+          <i class="fa-solid fa-bars"></i>
+        </span>
+      </nav>
+    </div>
+</header>
+<h1 class="tittleC">Mi Cuenta: <span class="nameS"> Jose Armando Carrillo</span> </h1>
+<section class="contenido_principal contenedor">
+                     <div class="contenedor">
+            <div class="card">
+                <div class="icon">
+                    <span class="material-symbols-outlined iconG">
+                        history
+                        </span>              
+                    </div>
+                <div class="info">
+                    <h3>Historial</h3>
+                    <p>Consultar el Historial de compras, Estado de tu orden actual , Ver facturas </p>
+                </div>
+            </div>
+
+            
+
+            <div class="card">
+                <div class="icon">
+                    <span class="material-symbols-outlined iconG">
+                        manage_accounts
+                        </span>         
+                  </div>
+             <div class="info">
+                    <h3>Cuenta</h3>
+                    <p>Actualizar datos de tu cuenta , Inicio de sesion , datos bancarios</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon">
+                    <span class="material-symbols-outlined iconG">
+                        shopping_cart
+                        </span>             
+                         </div>
+                 <div class="info">
+                    <h3>Carrito</h3>
+                    <p>Ver tu carrito de compras, Eliminar productos , Realizar Compra</p>
+                </div>
+            </div>
+      </div>
+ </section>

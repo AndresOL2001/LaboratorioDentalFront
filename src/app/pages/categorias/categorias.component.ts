@@ -12,6 +12,7 @@ import * as sha1 from 'js-sha1';
 import { Producto } from 'src/app/models/Producto';
 import { UsuarioService } from '../../services/usuario.service';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
@@ -21,7 +22,9 @@ export class CategoriasComponent implements OnInit {
   constructor(
     private categoriaService: CategoriasService,
     private productoService: ProductoService,
-    private usuarioService:UsuarioService
+    private usuarioService:UsuarioService,
+    private routerLink:Router,
+    private route: ActivatedRoute
   ) {}
 
   productos: Producto[] = [];
@@ -52,6 +55,14 @@ export class CategoriasComponent implements OnInit {
      })
     
    }
+
+   abrirMenu(){
+
+    const menu_items = document.querySelector('.menu_items')
+    menu_items.classList.toggle('show')
+      
+    }
+    
    getNombre(){
     return this.modelo.nombre.split(' ')[0];
   }
@@ -82,6 +93,7 @@ export class CategoriasComponent implements OnInit {
   }
 
   sha(number:number){
+    console.log(number);
     localStorage.setItem("idProducto",number.toString());
     return sha1(number.toString());
   }
@@ -90,4 +102,9 @@ export class CategoriasComponent implements OnInit {
     history.go(-1);
   }
 
+  router(number:number){
+    let id:number = this.sha(number)
+
+    this.routerLink.navigate([ `./productos/${id}`],{relativeTo: this.route});
+  }
 }

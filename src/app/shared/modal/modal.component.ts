@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewChildren } from '@angular/core';
+import {  Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WatchService } from 'src/app/services/watch.service';
 import { CategoriasService } from '../../services/categorias.service';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CategoriaCreacion } from '../../models/categoria';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../../services/usuario.service';
-import { TablaComponent } from '../tabla/tabla.component';
 
 @Component({
   selector: 'app-modal',

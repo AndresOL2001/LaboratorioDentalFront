@@ -23,6 +23,10 @@
     text-decoration: none;
   }
   
+  .card img{
+    background-size: cover;
+    background-position: center;
+  }
   
   .container {
     width: 90%;

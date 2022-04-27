@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsuarioCreacion } from 'src/app/models/usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-registro',
@@ -20,10 +25,10 @@ export class RegistroComponent implements OnInit {
 }
 
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,private authService:AuthService,private router:Router) { 
     this.registroForm = this.fb.group({
       Nombre:['',[Validators.required,Validators.minLength(10)]],
-      email:['',[Validators.required,Validators.pattern(this.emailPattern)]],
+      Correo:['',[Validators.required,Validators.pattern(this.emailPattern)]],
       Celular:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       Direccion:['',[Validators.required,Validators.maxLength(50)]],
       CodigoPostal:['',[Validators.required,Validators.minLength(5),Validators.maxLength(5)]],
@@ -41,11 +46,19 @@ export class RegistroComponent implements OnInit {
 
   registro(){
     if(this.registroForm.invalid){
-      this.registroForm.markAllAsTouched();
+      console.log(this.registroForm.value);
       console.log("formulario invalido");
+      this.registroForm.markAllAsTouched();
+      
 
     }else{
       console.log("formulario valido");
+      let usuarioAux:UsuarioCreacion = this.registroForm.value;
+
+      this.authService.crearUsuario(usuarioAux).subscribe(resp => {
+        Swal.fire('Correcto','Usuario creado correctamente','success');
+        this.router.navigate(['/auth/login']);
+      });
 
     }
   }

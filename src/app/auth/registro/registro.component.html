@@ -16,6 +16,13 @@
       <input formControlName="Direccion" type="text" placeholder="Direccion" />
     </div>
 
+    <span errorMsg [mensaje]="errorMsg('El celular tiene que ser de 10 digitos')" *ngIf="campoEsValido('Celular')"
+    class="form-control-text" style="color:red"></span>
+  <div class="input-contenedor">
+    <i class="fas fa-mobile-alt"></i>
+    <input formControlName="Celular" type="text" placeholder="Celular" />
+  </div>
+
     <span errorMsg [mensaje]="errorMsg('El codigo postal es de 5 digitos')" *ngIf="campoEsValido('CodigoPostal')"
       class="form-control-text" style="color:red"></span>
     <div class="input-contenedor">
@@ -23,11 +30,11 @@
       <input formControlName="CodigoPostal" type="text" placeholder=" Codigo Postal" />
     </div>
 
-    <span errorMsg [mensaje]="errorMsg('Formato de email invalido')" *ngIf="campoEsValido('email')"
+    <span errorMsg [mensaje]="errorMsg('Formato de email invalido')" *ngIf="campoEsValido('Correo')"
       class="form-control-text" style="color:red"></span>
     <div class="input-contenedor">
       <i class="far fa-envelope"></i>
-      <input formControlName="email" type="text" placeholder="Correo Electronico" />
+      <input formControlName="Correo" type="text" placeholder="Correo Electronico" />
     </div>
 
     <span errorMsg [mensaje]="errorMsg('Lo integran 4 letras, 6 dígitos y 3 caracteres alfanuméricos')"

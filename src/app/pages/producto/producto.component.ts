@@ -48,6 +48,13 @@ export class ProductoComponent implements OnInit {
   
   }
 
+  
+  abrirMenu(){
+
+    const menu_items = document.querySelector('.menu_items')
+    menu_items.classList.toggle('show')
+      
+    }
   inicializarPermisos(){
     this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
       let claims;
