@@ -8,7 +8,7 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
+  
   constructor(private usuarioService:UsuarioService) { }
   modelo = {
     rol:'',
@@ -16,7 +16,38 @@ export class InicioComponent implements OnInit {
   };
   ngOnInit(): void {
     this.inicializarPermisos();
+    this.sliderContent();
   }
+
+  sliderContent(){
+    let slider:any = document.querySelector(".contenedor-slider");
+    let sliderIndividual = document.querySelectorAll(".contenido-slider");
+    let contador = 1;
+    let width = sliderIndividual[0].clientWidth;
+    let intervalo = 5000;
+
+    window.addEventListener("resize", function(){
+     width = sliderIndividual[0].clientWidth;
+    })
+
+    setInterval(function(){
+      slides();
+    }, intervalo);
+
+    function slides(){
+      slider.style.transform = "translateX("+(-width*contador)+"px)";
+      slider.style.trasition = "transform .1s"
+      contador++;
+
+      if(contador == sliderIndividual.length){
+        setTimeout(function(){
+          slider.style.transform = "traslateX(0px)";
+          slider.style.transition = "transform 0s"; 
+          contador = 1;
+               } ,1500)
+      }
+    }
+   }
 
   inicializarPermisos(){
     this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {

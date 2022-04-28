@@ -12,7 +12,7 @@
     width: 90%;
     margin: 0 auto;
     overflow: hidden;
-    padding: 60px 0;
+    padding: 100px ;
     max-width: 1200px;
   }
 
@@ -246,7 +246,7 @@
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    padding: 40px;
+    padding: 10px;
     display: grid;
     grid-template-columns: 2fr 3fr;
     gap: 50px;

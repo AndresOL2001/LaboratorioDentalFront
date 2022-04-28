@@ -9,6 +9,95 @@ a{
   color: white;
 }
 
+/* Slider */
+
+.conteiner-slider{
+  margin-top:60px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.uno{
+  background-image: url("/assets/PrincipalPage/pexels-cedric-fauntleroy-4269362.jpg");
+  background-position: center;
+  background-size: cover
+}
+
+.dos{
+  background-image: url("/assets/Products&Services/portada2.jpg");
+  background-position: center;
+  background-size: cover
+}
+
+.tres{
+  background-image: url("/assets/PrincipalPage/3.jpg");
+  background-position: center;
+  background-size: cover
+}
+
+.slider{
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.contenedor-slider{
+  width: 100%;
+  display: flex;
+}
+
+.contenido-slider{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px ;
+  flex-shrink: 0;
+}
+
+.contenido-slider > img{
+  width: 400px;
+}
+
+.contenido-slider > div{
+  width: 100%;
+}
+.contenido-slider h1{
+  font-weight: 600;
+  font-size: 70px;
+  text-align: justify;
+  color:white;
+}
+
+.contenido-slider h2{
+  font-weight: 300;
+  font-size: 30px;
+  text-align: justify;
+  color:white;
+}
+
+.contenido-slider span{
+  font-weight: 600;
+  color: white;
+}
+
+.contenido-slider a{
+  color: var(--color-primary);
+  background-color: white;
+  width: 180px;
+  display: block;
+  padding: 20px 35px;
+  font-size: 15px;
+  text-align: center;
+  border-radius:30px;
+  margin-top:20px;
+  text-decoration: none;
+}
+
+.contenido-slider a:hover{
+  color: white;
+  background: var(--color-primary);
+}
 
 .container {
   width: 90%;
@@ -24,37 +113,13 @@ a{
   margin-bottom: 35px;
   letter-spacing: 1px;
 }
-.contenedor1 {
-  height: 100vh;
-  background-image: var(--background),
-    url(../../../assets/PrincipalPage/pexels-cedric-fauntleroy-4269362.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
-}
+
 
 .contenedor1 .container {
   padding: 0;
 }
 
-nav {
-  height: 75px;
-  width: 100vw;
-display: flex;
-justify-content: center;
-align-items: center;
-}
 
-.logo {
-  color: #ffffff;
-  font-size: 35px;
-  padding: 0 10px;
-  font-weight: bold;
-  position: absolute;
-  left: 3.5%;
-}
 
 .menu_items{
   display: flex;
@@ -101,19 +166,6 @@ ul.show{
 
 
 
-.pantalla_principal {
-  display: flex;
-  height: calc(100vh - 70px);
-  align-items: center;
-  color: white;
-}
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-}
 
 
 .titulo_principal{
@@ -122,11 +174,7 @@ ul.show{
   padding: 0;
   margin: 0;
 }
-.principal_text .subtitulo {
-  font-size: 2rem;
-  font-weight: 300;
-  margin: 15px 0;
-}
+
 
 .button {
   position: absolute;

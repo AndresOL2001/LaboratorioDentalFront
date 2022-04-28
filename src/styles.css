@@ -25,3 +25,11 @@
     color: white;
   }
   
+  body::-webkit-scrollbar{
+    width: 7px;
+  }
+  
+  body::-webkit-scrollbar-thumb{
+  background:#667eea;
+  border-radius: 8px;
+  }

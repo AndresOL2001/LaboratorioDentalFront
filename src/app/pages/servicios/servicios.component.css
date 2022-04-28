@@ -183,6 +183,7 @@ nav {
 /* Trabajos */
 .trabajos {
   background: white;
+  padding-top: 25px;
 }
 .trabajos_grid_Materiales {
   display: grid;
