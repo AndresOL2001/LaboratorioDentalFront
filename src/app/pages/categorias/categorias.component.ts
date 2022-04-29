@@ -10,8 +10,6 @@ import { CategoriasService } from '../../services/categorias.service';
 import { ProductoService } from '../../services/producto.service';
 import * as sha1 from 'js-sha1';
 import { Producto } from 'src/app/models/Producto';
-import { UsuarioService } from '../../services/usuario.service';
-import { environment } from 'src/environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-categorias',
@@ -22,7 +20,6 @@ export class CategoriasComponent implements OnInit {
   constructor(
     private categoriaService: CategoriasService,
     private productoService: ProductoService,
-    private usuarioService:UsuarioService,
     private routerLink:Router,
     private route: ActivatedRoute
   ) {}
@@ -31,10 +28,6 @@ export class CategoriasComponent implements OnInit {
   loading:boolean=true;
   categoriaActualId;
 
-  modelo = {
-    rol:'',
-    nombre:''
-  };
 
   categoriaActual: Categoria = {
     id: 0,
@@ -43,35 +36,13 @@ export class CategoriasComponent implements OnInit {
     descripcion: '',
     tipo: '',
   };
-
-  inicializarPermisos(){
-    this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
-      let claims;
-      if(localStorage.getItem("claims")){
-        claims = JSON.parse(localStorage.getItem(("claims")));
-      }
-     this.modelo.rol = claims ? claims[environment.rol] : ''
-     this.modelo.nombre =claims ? claims[environment.nombre] : '';
-     })
     
-   }
-
-   abrirMenu(){
-
-    const menu_items = document.querySelector('.menu_items')
-    menu_items.classList.toggle('show')
-      
-    }
-    
-   getNombre(){
-    return this.modelo.nombre.split(' ')[0];
-  }
+  
   ngOnInit(): void {
     this.categoriaActualId = JSON.parse(localStorage.getItem('id'));
     console.log(this.categoriaActualId);
     this.getCategoriaById();
     this.getProductos();
-    this.inicializarPermisos();
   }
 
   getCategoriaById() {

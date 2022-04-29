@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ChangeDetectorRef, OnChanges, ChangeDetectionStrategy, SimpleChanges, Input } from '@angular/core';
+import { Router, RouterLinkActive } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,22 +10,20 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent implements OnInit {
 
+
   constructor(private usuarioService:UsuarioService) { 
 
   }
 
-
-
   ngOnInit(): void {
-    console.log(this.modelo.rol);
     this.inicializarPermisos();
+    this.sliderContent();
   }
 
   modelo = {
     rol:'',
     nombre:''
-  };
-
+  }; 
   inicializarPermisos(){
     this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
       let claims;
@@ -33,6 +32,7 @@ export class NavbarComponent implements OnInit {
       }
      this.modelo.rol = claims ? claims[environment.rol] : ''
      this.modelo.nombre =claims ? claims[environment.nombre] : '';
+
      })
     
    }
@@ -55,5 +55,34 @@ export class NavbarComponent implements OnInit {
       nombre:""
     }
   }
+  sliderContent(){
+    let slider:any = document.querySelector(".contenedor2-slider");
+    let sliderIndividual = document.querySelectorAll(".contenido2-slider");
+    let contador = 1;
+    let width = sliderIndividual[0].clientWidth;
+    let intervalo = 5000;
+
+    window.addEventListener("resize", function(){
+     width = sliderIndividual[0].clientWidth;
+    })
+
+    setInterval(function(){
+      slides();
+    }, intervalo);
+
+    function slides(){
+      slider.style.transform = "translateX("+(-width*contador)+"px)";
+      slider.style.trasition = "transform .1s"
+      contador++;
+
+      if(contador == sliderIndividual.length){
+        setTimeout(function(){
+          slider.style.transform = "traslateX(0px)";
+          slider.style.transition = "transform 0s"; 
+          contador = 1;
+               } ,1500)
+      }
+    }
+   }
 
 }

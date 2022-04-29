@@ -1,54 +1,7 @@
 
-<!-- <header class="contenedor1">
-  <div class="container">
-    <nav>
-      <label class="logo"><i class="fas fa-tooth"></i>Dental</label>
-      <ul class="menu_items">
-        <li class="active"><a [routerLink]="'inicio'">Inicio </a></li>
-        <li><a>Productos & Servicios</a></li>
-        <li><a href="#footer-contenedor">Contactanos</a></li>
-        <li *ngIf="modelo.rol==='' || modelo.rol===undefined"><a [routerLink]="'/auth'">Iniciar sesion</a></li>
-        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{getNombre()}}</a></li>
-        <div *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'" class="dropdown">
-          <button class="dropbtn">
-            <i class="far fa-user icon"></i>   
-         </button>
-          <div class="dropdown-content">
-          <li><a [routerLink]= "'/inicio/miCuenta'">Mi Cuenta</a></li>
-          <li><a (click)="cerrarSesion()" [routerLink]="'/auth'">Cerrar sesion</a></li>
-      </div>
-    </div>
-      </ul>
-      <span (click)="abrirMenu()" class="btn_menu">
-        <i class="fas fa-bars"></i>
-      </span>
-    </nav>
-
-    <section class="pantalla_principal">
-      <div class="principal-text">
-        <h1 class="titulo_principal">Dental Del Nortec</h1>
-        <h2 class="subtitulo">
-          Laboratorio dental - Creando Mejores Sonrisas
-        </h2>
-        <a class="button" [routerLink]="'/auth/registro'">Registrate ahora</a>
-      </div>
-    </section>
-  </div>
- 
-  <div class="wave" style="overflow: hidden">
-    <svg
-      viewBox="0 0 500 150"
-      preserveAspectRatio="none"
-      style="height: 100%; width: 100%"
-    >
-      <path
-        d="M0.00,49.98 C149.99,150.00 373.30,-64.61 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-        style="stroke: none; fill: #ffffff"
-      ></path>
-    </svg>
-  </div>
-</header> -->
+<app-navbar></app-navbar>
 <app-loading *ngIf="loading"></app-loading>
+<div class="contenedorServ">
 <section *ngIf="!loading" class="trabajos">
   <div class="container">
     <!-- categorias Servicios -->
@@ -122,3 +75,4 @@
     </div>
   </div>
 </section>
+</div>

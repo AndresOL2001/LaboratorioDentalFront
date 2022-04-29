@@ -24,49 +24,16 @@ export class ServiciosComponent implements OnInit {
   productoIdActual:number;
   loading:boolean = true;
 
-  constructor(private usuarioService:UsuarioService,private categoriasService:CategoriasService) {
+  constructor(private categoriasService:CategoriasService) {
  
-   }
-   getNombre(){
-     return this.modelo.nombre.split(' ')[0];
-   }
-   inicializarPermisos(){
-    this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
-      let claims;
-      if(localStorage.getItem("claims")){
-        claims = JSON.parse(localStorage.getItem(("claims")));
-      }
-     this.modelo.rol = claims ? claims[environment.rol] : ''
-     this.modelo.nombre =claims ? claims[environment.nombre] : '';
-     })
-    
    }
 
-   cerrarSesion(){
-     localStorage.removeItem("claims");
-     this.modelo={
-       rol:"",
-       nombre:""
-     }
-   }
- 
 
   ngOnInit(): void {  
-    this.inicializarPermisos();
     this.getCategorias();
-
-    
    
   }
   
-
-
-  abrirMenu(){
-
-    const menu_items = document.querySelector('.menu_items')
-    menu_items.classList.toggle('show')
-      
-    }
   
  getCategorias(){
    this.categoriasService.getCategorias().subscribe( (categorias:Categoria[]) => {

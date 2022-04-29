@@ -180,6 +180,9 @@ nav {
   color: white;
 }
 
+.contenedorServ{
+  margin-top: 50px;
+}
 /* Trabajos */
 .trabajos {
   background: white;

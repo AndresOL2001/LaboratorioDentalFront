@@ -1,84 +1,69 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-      background: url(/Img/Login-Registros/fondologin2.jpg);
-    background-size: cover;
-    background-attachment: fixed; 
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  .contenedor {
-    position: relative;
-    bottom: 20px;
-    width: 100%;
-    padding: 15px;
-  }
-  .formulario {
-    position: relative;
-    bottom: 100px;
-    background: rgb(255, 255, 255);
-    margin-top: 150px;
-    padding: 50px;
-  }
+  box-sizing: border-box;
+}
 
-  i{
-    margin-left: 10px;
-  }
-  h1 {
+.formulario {
     text-align: center;
-    color: #1a2537;
-    font-size: 40px;
-  }
-  input[type="text"],
-  
-  input[type="password"] {
-    font-size: 20px;
-    width: 82%;
-    padding: 10px;
+  height: 500px;
+  position: relative;
+  bottom: 40px;
+  background: rgba(255, 255, 255, 0.437);
+  margin-top: 150px;
+  padding: 50px;
+}
+
+i{margin-right: 10px;}
+
+.contenedorlogin h1 {
+  text-align: center;
+  color: #1a2537;
+  font-size: 40px;
+}
+input[type="text"],input[type="password"] {
+  font-size: 20px;
+  width: 82%;
+  padding: 10px;
+  border: none;
+}
+.input-contenedor{
+    margin-bottom: 15px;
+    border:1px solid black;
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+.button{
     border: none;
-  }
-  .input-contenedor{
-      margin-bottom: 15px;
-      border:1px solid black;
-  }
-  .icon{
-      min-width: 50px;
-      text-align: center;
-      color: #999;
-  }
-  .button{
-      border: none;
-      background-color: #1a2537;
-      color: white;
-      width: 100%;
-      font-size: 20px;
-      padding: 15px 20px;
-      border-radius:5px;
-      cursor: pointer;
-  }
-  .button:hover{
-      background-color: #cc2626a4;
-  }
-  p{
-      text-align: center;
-  }
-  
-  .link{
-      text-decoration: none;
-      color: #1a2537;
-      font-weight: 600;
-  }
-  .link:hover{
-      color: cadetblue;
-  }
-  @media(min-width:768px){
-      .formulario{
-          margin: auto;
-          width: 500px;
-          margin-top: 150px;
-          border-radius: 2%;
-      }
-  }
+    background-color: #1a2537;
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    padding: 15px 20px;
+    border-radius:5px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #cc2626a4;
+}
+p{
+    text-align: center;
+}
+
+.link{
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
+}
+.link:hover{
+    color: cadetblue;
+}
+@media(min-width:768px){
+    .formulario{
+        margin: auto;
+        width: 500px;
+        margin-top: 150px;
+        border-radius: 2%;
+    }
+}

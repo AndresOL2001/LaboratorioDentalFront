@@ -1,50 +1,57 @@
 <div class="contenedor-navbar">
-    <nav>
-      <h2 class="logo"><img class="fontLogo" src="../../../assets/PrincipalPage/logoD.jpeg" alt=""><span>Laboratorio</span> Dental</h2>
-      <ul>
-        <li><a [routerLink]= "'/inicio'">Home</a></li>
-        <li><a [routerLink]= "'/inicio/servicios'">Productos & Servicios</a></li>
-        <li><a href="#">Contacto</a></li>
-        <button *ngIf="modelo.rol==='' || modelo.rol===undefined" [routerLink]= "'/auth'"class="btninit" type="button">Iniciar Sesion</button>
-        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{getNombre()}}</a></li>
-        <div *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'" class="dropdown">
-          <button class="dropbtn">
-            <i class="far fa-user icon"></i>   
-         </button>
-            <div class="dropdown-content">
-            <li><a [routerLink]= "'/inicio/miCuenta'">Mi Cuenta</a></li>
-            <li><a (click)="cerrarSesion()" [routerLink]="'/auth'">Cerrar sesion</a></li>
+  
+  <nav>
+    <h2 class="logo"><img class="fontLogo" src="../../../assets/PrincipalPage/logoD.jpeg" alt=""><span>Laboratorio</span> Dental</h2>
+    <ul>
+      <li><a [routerLink]= "'/inicio'">Home</a></li>
+      <li><a [routerLink]= "'/inicio/servicios'">Productos & Servicios</a></li>
+      <li><a href="#">Contacto</a></li>
+      <button *ngIf="modelo.rol==='' || modelo.rol===undefined" [routerLink]= "'/auth'"class="btninit" type="button">Iniciar Sesion</button>
+     <li>
+      <div *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'" class="dropdown">
+        <button class="dropbtn">
+          <i class="far fa-user icon"></i>   
+       </button>
+          <div class="dropdown-content">
+          <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{getNombre()}}</a></li>
+          <li><a [routerLink]= "'/inicio/miCuenta'">Mi Cuenta</a></li>
+          <li><a (click)="cerrarSesion()" [routerLink]="'/auth'">Cerrar sesion</a></li>
+         </div>
+      </div>
+    </li>
+    </ul>
+  
+  
+  </nav>
+  <div class="conteiner2-slider">
+    <div class="slider">
+      <div class="contenedor2-slider">
+        <section class="contenido2-slider">
+          <div>
+           <span>Promociones de servicios y productos</span>
           </div>
-        </div>
-      </ul>
-    
-    
-    </nav>
+          </section>
+  
+  
+          <section class="contenido2-slider">
+            <div>
+             <span>Obten el 50% de descuento en nuestros productos</span>
+            </div>
+            </section>
+  
+            <section class="contenido2-slider">
+              <div>
+               <span>Nos ubicamos en la avenida tecnologico</span>
+              </div>
+              </section>
+
+              <section class="contenido2-slider">
+                <div>
+                 <span>Promociones de servicios y productos</span>
+                </div>
+                </section>
+      </div>
   </div>
+</div>
 
-  <!-- 
-<nav>
-      <label class="logo"><i class="fas fa-tooth"></i>Dental</label>
-      <ul class="menu_items">
-        <li class="active"><a [routerLink]="'inicio'">Inicio </a></li>
-        <li><a [routerLink]="'./servicios'">Productos & Servicios</a></li>
-        <li><a href="#footer-contenedor">Contactanos</a></li>
-        <li *ngIf="modelo.rol==='' || modelo.rol===undefined"><a [routerLink]="'/auth'">Iniciar sesion</a></li>
-        <li *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'"><a>Bienvenido {{getNombre()}}</a></li>
-
-        <div *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'" class="dropdown">
-          <button class="dropbtn">
-            <i class="far fa-user icon"></i>   
-         </button>
-            <div class="dropdown-content">
-            <li><a [routerLink]= "'miCuenta'">Mi Cuenta</a></li>
-            <li><a (click)="cerrarSesion()" [routerLink]="'/auth'">Cerrar sesion</a></li>
-          </div>
-        </div>
-      </ul>
-      <span (click)="abrirMenu()" class="btn_menu">
-        <i class="fas fa-bars"></i>
-      </span>
-    </nav>
-
-  -->
+</div>

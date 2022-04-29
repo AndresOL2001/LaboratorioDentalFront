@@ -11,13 +11,26 @@ import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { HistorialComponent } from './historial/historial.component';
 import { ComprasComponent } from './compras/compras.component';
 import { UsuarioConfigComponent } from './usuario-config/usuario-config.component';
+import { AppModule } from '../app.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [InicioComponent,LoadingComponent, ServiciosComponent, CategoriasComponent, ProductoComponent, MiCuentaComponent, HistorialComponent, ComprasComponent, UsuarioConfigComponent],
+  declarations: [InicioComponent,
+    LoadingComponent,
+     ServiciosComponent, 
+     CategoriasComponent,
+      ProductoComponent, 
+      MiCuentaComponent,
+       HistorialComponent, 
+       ComprasComponent, 
+       UsuarioConfigComponent,
+       
+      ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    SharedModule
   ]
 })
 export class PagesModule { }

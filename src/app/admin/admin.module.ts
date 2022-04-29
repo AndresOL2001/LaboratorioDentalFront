@@ -17,7 +17,8 @@ import { ErrorMsgAdmDirective } from './directives/error-msg-adm.directive';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   exports:[ErrorMsgAdmDirective]
 })
