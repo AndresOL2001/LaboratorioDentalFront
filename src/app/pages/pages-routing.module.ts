@@ -8,6 +8,8 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { ComprasComponent } from './compras/compras.component';
 import { HistorialComponent } from './historial/historial.component';
 import { UsuarioConfigComponent } from './usuario-config/usuario-config.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import { UserGuard } from '../auth/guards/user.guard';
 
 const routes: Routes = [
 
@@ -27,16 +29,20 @@ const routes: Routes = [
         path:'servicios/categorias/:id/productos/:id',component:ProductoComponent
       },
       {
-        path:'miCuenta',component:MiCuentaComponent
+        path:'miCuenta',component:MiCuentaComponent,
+        canActivate:[UserGuard]        
       },
       {
-        path:'miCuenta/compras',component:ComprasComponent
+        path:'miCuenta/compras',component:ComprasComponent,
+        canActivate:[UserGuard]        
       },
       {
-        path:'miCuenta/historial',component:HistorialComponent
+        path:'miCuenta/historial',component:HistorialComponent,
+        canActivate:[UserGuard]        
       },
       {
-        path:'miCuenta/configuracion',component:UsuarioConfigComponent
+        path:'miCuenta/configuracion',component:UsuarioConfigComponent,
+        canActivate:[UserGuard],
       },
       {
         path:'**',redirectTo:''

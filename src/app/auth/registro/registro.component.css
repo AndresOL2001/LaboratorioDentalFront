@@ -22,10 +22,10 @@
   }
   .formulario {
     position: relative;
-    bottom: 100px;
+    bottom: 40px;
     background: rgb(255, 255, 255);
-    margin-top: 150px;
-    padding:25px;
+
+    padding:30px;
   }
 
 

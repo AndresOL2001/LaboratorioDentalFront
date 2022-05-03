@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
 
    errorMsg(mensaje:string){  
     return mensaje;
-}
+  }
 
 
   constructor(private fb:FormBuilder,private authService:AuthService,private router:Router) { 

@@ -6,7 +6,7 @@
       <li><a [routerLink]= "'/inicio'">Home</a></li>
       <li><a [routerLink]= "'/inicio/servicios'">Productos & Servicios</a></li>
       <li><a href="#">Contacto</a></li>
-      <button *ngIf="modelo.rol==='' || modelo.rol===undefined" [routerLink]= "'/auth'"class="btninit" type="button">Iniciar Sesion</button>
+      <button *ngIf="modelo.rol==='' || modelo.rol===undefined || !modelo.rol" [routerLink]= "'/auth'"class="btninit" type="button">Iniciar Sesion</button>
      <li>
       <div *ngIf="modelo.rol==='Usuario' || modelo.rol==='Admin'" class="dropdown">
         <button class="dropbtn">
@@ -20,8 +20,7 @@
       </div>
     </li>
     </ul>
-  
-  
+
   </nav>
   <div class="conteiner2-slider">
     <div class="slider">

@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, ChangeDetectorRef, OnChanges, 
 import { Router, RouterLinkActive } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -11,19 +12,22 @@ import { environment } from 'src/environments/environment';
 export class NavbarComponent implements OnInit {
 
 
-  constructor(private usuarioService:UsuarioService) { 
+  constructor(private usuarioService:UsuarioService,private router:Router) { 
 
   }
-
-  ngOnInit(): void {
-    this.inicializarPermisos();
-    this.sliderContent();
-  }
-
   modelo = {
     rol:'',
     nombre:''
   }; 
+
+  ngOnInit(): void {
+   
+    this.inicializarPermisos();
+    this.sliderContent();
+    
+  }
+
+
   inicializarPermisos(){
     this.usuarioService.obtenerRolActualUsuario().subscribe(resp => {
       let claims;
@@ -33,6 +37,10 @@ export class NavbarComponent implements OnInit {
      this.modelo.rol = claims ? claims[environment.rol] : ''
      this.modelo.nombre =claims ? claims[environment.nombre] : '';
 
+     },err => {
+       this.modelo.rol = ''
+     // this.router.navigateByUrl('/auth');
+     // Swal.fire('Sesion Caducada','Favor de iniciar sesión nuevamente','error');
      })
     
    }
@@ -51,8 +59,8 @@ export class NavbarComponent implements OnInit {
   cerrarSesion(){
     localStorage.removeItem("claims");
     this.modelo={
-      rol:"",
-      nombre:""
+      rol:'',
+      nombre:''
     }
   }
   sliderContent(){

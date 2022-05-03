@@ -1,104 +1,71 @@
 <app-navbar></app-navbar>
-<div class="contenedorUserConfig">
-    <section class="contenedor">
-      <div class="contenedor-breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="#">Mi Cuenta</a></li>
-          <li><a href="#">Inicio de sesion y seguirdad</a></li>
-        </ol>
-      </div>
-    </section>
+
+<form class="formulario"  [formGroup]="actualizarForm" autocomplete="off" (ngSubmit)="actualizarUsuario()" >
+      <ol class="breadcrumb">
+        <li><a  [routerLink]= "'/inicio/miCuenta'" >Mi Cuenta</a></li>
+        <li><a href="#">Inicio de sesion y seguirdad</a></li>
+      </ol>
+  <h1>Inicio de sesión y Datos Personales</h1>
+  <div class="contenedor">
   
-    <div class="contenedorTable">
-        <h1>Inicio de Sesion y Seguridad</h1>
-      <div class="table">
-        <div class="Datos">
-          <h3>Nombre:</h3>
-          <p>Jose</p>
-        </div>
-  
-        <div class="btnMove">
-            <button class="button-3">Modificar</button>
-        </div>
-     </div>
-    
-  
-        <div class="table">
-          <div class="Datos">
-            <h3>RFC:</h3>
-            <p>Cava011024689</p>
-          </div>
-  
-          
-        <div class="btnMove">
-            <button class="button-3">Modificar</button>
-        </div>
-     </div>
-  
-       
-  
-  
-      <div class="table">
-        <div class="Datos">
-          <h3>Correo electrónico:</h3>
-          <p>josecarrival1@gmail.com
-          </p>
-        </div>
-  
-  
-        <div class="btnMove">
-            <button class="button-3">Modificar</button>
-        </div>
-      </div>
-  
-      <div class="table">
-        <div class="Datos">
-          <h3>Contraseña:</h3>
-          <p>**</p>
-        </div>
-  
-        
-        <div class="btnMove">
-            <button class="button-3">Modificar</button>
-        </div>
-     </div>
-  
-        <div class="table">
-          <div class="Datos">
-            <h3>Celular:</h3>
-            <p>+526624492538</p>
-          </div>
-  
-          
-        <div class="btnMove">
-            <button class="button-3">Modificar</button>
-        </div>
-     </div>
-  
-          
-          <div class="table">
-            <div class="Datos">
-              <h3>Direccion:</h3>
-              <p>Cobre #57</p>
-            </div>
-  
-            
-        <div class="btnMove">
-            <button class="button-3">Modificar</button>
-        </div>
-     </div>
-  
-  
-          <div class="table">
-            <div class="Datos">
-              <h3>Codigo Postal:</h3>
-              <p>83160</p>
-            </div>
-  
-        <div class="btnMove">
-          <button class="button-3">Modificar</button>
-        </div>
-      </div>
-  
+    <span errorMsg [mensaje]="errorMsg('El nombre debe ser mayor a 10 caracteres')" *ngIf="campoEsValido('Nombre')"
+    class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-user"></i>
+      <input formControlName="Nombre" type="text"  />
     </div>
+
+    <span errorMsg [mensaje]="errorMsg('La direccion no puede ser vacia')" *ngIf="campoEsValido('Direccion')"
+    class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-map"></i>
+      <input formControlName="Direccion" type="text"  />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('El celular tiene que ser de 10 digitos')" *ngIf="campoEsValido('Celular')"
+    class="form-control-text" style="color:red"></span> 
+     <div class="input-contenedor">
+    <i class="fas fa-mobile-alt"></i>
+    <input formControlName="Celular" type="text" />
   </div>
+
+  <span errorMsg [mensaje]="errorMsg('El codigo postal es de 5 digitos')" *ngIf="campoEsValido('CodigoPostal')"
+  class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-paper-plane"></i>
+      <input formControlName="CodigoPostal" type="text"  />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('Formato de email invalido')" *ngIf="campoEsValido('Correo')"
+    class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-envelope"></i>
+      <input formControlName="Correo" type="text"  />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('Lo integran 4 letras, 6 dígitos y 3 caracteres alfanuméricos')"
+    *ngIf="campoEsValido('RFC')" class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="far fa-address-card"></i>
+      <input formControlName="RFC" type="text"   />
+    </div>
+
+    <span></span>
+    <div class="input-contenedor">
+      <i class="fas fa-key"></i>
+      <input formControlName="passwordActual" type="password" placeholder="Ingrese Contraseña Actual" />
+    </div>
+
+    <span errorMsg [mensaje]="errorMsg('La contraseña tiene que ser mayor o igual a 6 caracteres')"
+    *ngIf="campoEsValido('password')" class="form-control-text" style="color:red"></span>
+    <div class="input-contenedor">
+      <i class="fas fa-key"></i>
+      <input formControlName="password" type="password" placeholder="contraseña nueva o ingresar la actual" />
+    </div>
+
+
+    <div class="centrarBoton">
+    <button type="submit" class="button-3">Actualizar Datos</button>
+  </div>
+  </div>
+</form>

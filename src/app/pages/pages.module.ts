@@ -13,6 +13,7 @@ import { ComprasComponent } from './compras/compras.component';
 import { UsuarioConfigComponent } from './usuario-config/usuario-config.component';
 import { AppModule } from '../app.module';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

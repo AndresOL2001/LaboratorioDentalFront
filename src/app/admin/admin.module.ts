@@ -9,17 +9,17 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ModalComponent } from '../shared/modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ErrorMsgAdmDirective } from './directives/error-msg-adm.directive';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [InicioComponent, TablaComponent, CategoriasComponent, UsuariosComponent, ProductosComponent,ModalComponent, ErrorMsgAdmDirective],
+  declarations: [InicioComponent, TablaComponent, CategoriasComponent, UsuariosComponent, ProductosComponent,ModalComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-
+    SharedModule
   ],
-  exports:[ErrorMsgAdmDirective]
+  exports:[]
 })
 export class AdminModule { }

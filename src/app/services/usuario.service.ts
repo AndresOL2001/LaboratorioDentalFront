@@ -38,5 +38,12 @@ export class UsuarioService {
 
   }
 
+  checkPasswordsById(password:string){
+    let fd = new FormData();
+    fd.append("password", password);
+    return this.http.post(this.PRODUCCION+`usuarios/checkPasswords`,fd);
+
+  }
+
   
 }
