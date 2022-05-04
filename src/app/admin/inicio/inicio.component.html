@@ -1,6 +1,6 @@
 
   <nav>
-    <label class="logo"><i class="fas fa-tooth"></i>Dental</label>
+    <label [routerLink]="'/inicio'" class="logo"><i class="fas fa-tooth" ></i>Dental</label>
 
    <ul class="menu_items">
       <li>
@@ -15,8 +15,12 @@
       <li>
         <a class="nav-link"  [routerLink]="'/admin/usuarios'">Usuarios</a>
       </li>
+      <li>
+        <a  class="nav-link" (click)="cerrarSesion()" [routerLink]="'/auth'">Cerrar Sesión</a>
+      </li>
       
     </ul> 
+ 
   </nav>
 
 

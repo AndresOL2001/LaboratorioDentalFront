@@ -24,7 +24,7 @@ nav {
     height: 75px;
     width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background: #667eea;
   margin-bottom: 20px;

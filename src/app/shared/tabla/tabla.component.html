@@ -15,7 +15,9 @@
       <li>
         <a class="nav-link"  [routerLink]="'/admin/usuarios'">Usuarios</a>
       </li>
-      
+      <li>
+      <a  class="nav-link" (click)="cerrarSesion()" [routerLink]="'/auth'">Cerrar Sesión</a>
+    </li>
     </ul> 
   </nav>
 

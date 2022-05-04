@@ -139,4 +139,8 @@ export class TablaComponent implements OnInit {
     })
   }
 
+  cerrarSesion(){
+    localStorage.removeItem('claims');
+  }
+
 }

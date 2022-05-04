@@ -20,5 +20,8 @@ export class InicioComponent implements OnInit {
     });
   }
   
+  cerrarSesion(){
+    localStorage.removeItem('claims');
+  }
 
 }
